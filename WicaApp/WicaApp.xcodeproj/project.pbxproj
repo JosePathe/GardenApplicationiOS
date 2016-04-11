@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E7B2F971CBBA78500DF7657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2F961CBBA78500DF7657 /* AppDelegate.swift */; };
+		1E7B2F991CBBA78600DF7657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2F981CBBA78600DF7657 /* ViewController.swift */; };
+		1E7B2F9C1CBBA78600DF7657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7B2F9A1CBBA78600DF7657 /* Main.storyboard */; };
+		1E7B2F9E1CBBA78600DF7657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7B2F9D1CBBA78600DF7657 /* Assets.xcassets */; };
+		1E7B2FA11CBBA78600DF7657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7B2F9F1CBBA78600DF7657 /* LaunchScreen.storyboard */; };
+		1E7B2FAC1CBBA78600DF7657 /* WicaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FAB1CBBA78600DF7657 /* WicaAppTests.swift */; };
+		1E7B2FB71CBBA78600DF7657 /* WicaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FB61CBBA78600DF7657 /* WicaAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1E7B2FA81CBBA78600DF7657 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E7B2F8B1CBBA78500DF7657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E7B2F921CBBA78500DF7657;
+			remoteInfo = WicaApp;
+		};
+		1E7B2FB31CBBA78600DF7657 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E7B2F8B1CBBA78500DF7657 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E7B2F921CBBA78500DF7657;
+			remoteInfo = WicaApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E7B2F931CBBA78500DF7657 /* WicaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WicaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E7B2F961CBBA78500DF7657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1E7B2F981CBBA78600DF7657 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1E7B2F9B1CBBA78600DF7657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1E7B2F9D1CBBA78600DF7657 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E7B2FA01CBBA78600DF7657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1E7B2FA21CBBA78600DF7657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E7B2FA71CBBA78600DF7657 /* WicaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WicaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E7B2FAB1CBBA78600DF7657 /* WicaAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WicaAppTests.swift; sourceTree = "<group>"; };
+		1E7B2FAD1CBBA78600DF7657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E7B2FB21CBBA78600DF7657 /* WicaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WicaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E7B2FB61CBBA78600DF7657 /* WicaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WicaAppUITests.swift; sourceTree = "<group>"; };
+		1E7B2FB81CBBA78600DF7657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E7B2F901CBBA78500DF7657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FA41CBBA78600DF7657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FAF1CBBA78600DF7657 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E7B2F8A1CBBA78500DF7657 = {
+			isa = PBXGroup;
+			children = (
+				1E7B2F951CBBA78500DF7657 /* WicaApp */,
+				1E7B2FAA1CBBA78600DF7657 /* WicaAppTests */,
+				1E7B2FB51CBBA78600DF7657 /* WicaAppUITests */,
+				1E7B2F941CBBA78500DF7657 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E7B2F941CBBA78500DF7657 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E7B2F931CBBA78500DF7657 /* WicaApp.app */,
+				1E7B2FA71CBBA78600DF7657 /* WicaAppTests.xctest */,
+				1E7B2FB21CBBA78600DF7657 /* WicaAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E7B2F951CBBA78500DF7657 /* WicaApp */ = {
+			isa = PBXGroup;
+			children = (
+				1E7B2F961CBBA78500DF7657 /* AppDelegate.swift */,
+				1E7B2F981CBBA78600DF7657 /* ViewController.swift */,
+				1E7B2F9A1CBBA78600DF7657 /* Main.storyboard */,
+				1E7B2F9D1CBBA78600DF7657 /* Assets.xcassets */,
+				1E7B2F9F1CBBA78600DF7657 /* LaunchScreen.storyboard */,
+				1E7B2FA21CBBA78600DF7657 /* Info.plist */,
+			);
+			path = WicaApp;
+			sourceTree = "<group>";
+		};
+		1E7B2FAA1CBBA78600DF7657 /* WicaAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1E7B2FAB1CBBA78600DF7657 /* WicaAppTests.swift */,
+				1E7B2FAD1CBBA78600DF7657 /* Info.plist */,
+			);
+			path = WicaAppTests;
+			sourceTree = "<group>";
+		};
+		1E7B2FB51CBBA78600DF7657 /* WicaAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1E7B2FB61CBBA78600DF7657 /* WicaAppUITests.swift */,
+				1E7B2FB81CBBA78600DF7657 /* Info.plist */,
+			);
+			path = WicaAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E7B2F921CBBA78500DF7657 /* WicaApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E7B2FBB1CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaApp" */;
+			buildPhases = (
+				1E7B2F8F1CBBA78500DF7657 /* Sources */,
+				1E7B2F901CBBA78500DF7657 /* Frameworks */,
+				1E7B2F911CBBA78500DF7657 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WicaApp;
+			productName = WicaApp;
+			productReference = 1E7B2F931CBBA78500DF7657 /* WicaApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1E7B2FA61CBBA78600DF7657 /* WicaAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E7B2FBE1CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaAppTests" */;
+			buildPhases = (
+				1E7B2FA31CBBA78600DF7657 /* Sources */,
+				1E7B2FA41CBBA78600DF7657 /* Frameworks */,
+				1E7B2FA51CBBA78600DF7657 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E7B2FA91CBBA78600DF7657 /* PBXTargetDependency */,
+			);
+			name = WicaAppTests;
+			productName = WicaAppTests;
+			productReference = 1E7B2FA71CBBA78600DF7657 /* WicaAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1E7B2FB11CBBA78600DF7657 /* WicaAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E7B2FC11CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaAppUITests" */;
+			buildPhases = (
+				1E7B2FAE1CBBA78600DF7657 /* Sources */,
+				1E7B2FAF1CBBA78600DF7657 /* Frameworks */,
+				1E7B2FB01CBBA78600DF7657 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E7B2FB41CBBA78600DF7657 /* PBXTargetDependency */,
+			);
+			name = WicaAppUITests;
+			productName = WicaAppUITests;
+			productReference = 1E7B2FB21CBBA78600DF7657 /* WicaAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E7B2F8B1CBBA78500DF7657 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Johann Berthet";
+				TargetAttributes = {
+					1E7B2F921CBBA78500DF7657 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					1E7B2FA61CBBA78600DF7657 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 1E7B2F921CBBA78500DF7657;
+					};
+					1E7B2FB11CBBA78600DF7657 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 1E7B2F921CBBA78500DF7657;
+					};
+				};
+			};
+			buildConfigurationList = 1E7B2F8E1CBBA78500DF7657 /* Build configuration list for PBXProject "WicaApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1E7B2F8A1CBBA78500DF7657;
+			productRefGroup = 1E7B2F941CBBA78500DF7657 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E7B2F921CBBA78500DF7657 /* WicaApp */,
+				1E7B2FA61CBBA78600DF7657 /* WicaAppTests */,
+				1E7B2FB11CBBA78600DF7657 /* WicaAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E7B2F911CBBA78500DF7657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7B2FA11CBBA78600DF7657 /* LaunchScreen.storyboard in Resources */,
+				1E7B2F9E1CBBA78600DF7657 /* Assets.xcassets in Resources */,
+				1E7B2F9C1CBBA78600DF7657 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FA51CBBA78600DF7657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FB01CBBA78600DF7657 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E7B2F8F1CBBA78500DF7657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7B2F991CBBA78600DF7657 /* ViewController.swift in Sources */,
+				1E7B2F971CBBA78500DF7657 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FA31CBBA78600DF7657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7B2FAC1CBBA78600DF7657 /* WicaAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E7B2FAE1CBBA78600DF7657 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7B2FB71CBBA78600DF7657 /* WicaAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1E7B2FA91CBBA78600DF7657 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E7B2F921CBBA78500DF7657 /* WicaApp */;
+			targetProxy = 1E7B2FA81CBBA78600DF7657 /* PBXContainerItemProxy */;
+		};
+		1E7B2FB41CBBA78600DF7657 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E7B2F921CBBA78500DF7657 /* WicaApp */;
+			targetProxy = 1E7B2FB31CBBA78600DF7657 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1E7B2F9A1CBBA78600DF7657 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E7B2F9B1CBBA78600DF7657 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1E7B2F9F1CBBA78600DF7657 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E7B2FA01CBBA78600DF7657 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1E7B2FB91CBBA78600DF7657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1E7B2FBA1CBBA78600DF7657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1E7B2FBC1CBBA78600DF7657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WicaApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1E7B2FBD1CBBA78600DF7657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WicaApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1E7B2FBF1CBBA78600DF7657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WicaAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WicaApp.app/WicaApp";
+			};
+			name = Debug;
+		};
+		1E7B2FC01CBBA78600DF7657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WicaAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WicaApp.app/WicaApp";
+			};
+			name = Release;
+		};
+		1E7B2FC21CBBA78600DF7657 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WicaAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WicaApp;
+			};
+			name = Debug;
+		};
+		1E7B2FC31CBBA78600DF7657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WicaAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johannberthet.WicaAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WicaApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E7B2F8E1CBBA78500DF7657 /* Build configuration list for PBXProject "WicaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7B2FB91CBBA78600DF7657 /* Debug */,
+				1E7B2FBA1CBBA78600DF7657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E7B2FBB1CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7B2FBC1CBBA78600DF7657 /* Debug */,
+				1E7B2FBD1CBBA78600DF7657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1E7B2FBE1CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7B2FBF1CBBA78600DF7657 /* Debug */,
+				1E7B2FC01CBBA78600DF7657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1E7B2FC11CBBA78600DF7657 /* Build configuration list for PBXNativeTarget "WicaAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7B2FC21CBBA78600DF7657 /* Debug */,
+				1E7B2FC31CBBA78600DF7657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E7B2F8B1CBBA78500DF7657 /* Project object */;
+}
