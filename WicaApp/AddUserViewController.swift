@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class AddUserViewController: UIViewController {
     // UI items
@@ -26,8 +25,9 @@ class AddUserViewController: UIViewController {
     }
     
     // MARK: - Click listeners
+    
     @IBAction func onClickRegisterButton(sender: AnyObject) {
-        WebServiceHandler.sharedInstance.getAllGardens(WebServiceHandler.allGardensUrl, completionHandler: {(response) -> Void in
+        WebServiceHandler.sharedInstance.getAllGardens({(response) -> Void in
             print(response)
         })
     }
