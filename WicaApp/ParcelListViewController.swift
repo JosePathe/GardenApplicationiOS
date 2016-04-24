@@ -53,9 +53,16 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        //let parcel:Parcel = self.parcelList[indexPath.row] as! Parcel
-        cell.textLabel!.text = String.init("Parcelle n°\(String(indexPath.row+1))")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as! ParcelTableViewCell
+        let parcel:Parcel = self.parcelList[indexPath.row] as! Parcel
+        cell.parcelLabel.text = String.init("Parcelle n°\(String(indexPath.row+1))")
+        if parcel.parcelIsFree == 1 {
+            cell.isFreeLabel.text = "Libre"
+            cell.isFreeLabel.textColor = UIColor.greenColor()
+        } else {
+            cell.isFreeLabel.text = "Occupée"
+            cell.isFreeLabel.textColor = UIColor.redColor()
+        }
         
         return cell
     }

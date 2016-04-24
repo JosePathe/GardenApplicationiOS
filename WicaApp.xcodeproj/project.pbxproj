@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1E1A73621CBD80AD007ECEEB /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A73611CBD80AD007ECEEB /* Garden.swift */; };
-		1E1A73641CBD84F8007ECEEB /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A73631CBD84F8007ECEEB /* MapAnnotation.swift */; };
 		1E1A73681CBD8A51007ECEEB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1A73671CBD8A51007ECEEB /* MapKit.framework */; };
 		1E3737BB1CBFAF600097ADC1 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3737BA1CBFAF600097ADC1 /* City.swift */; };
 		1E3B3AA11CBD770A00A69CDD /* CityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */; };
@@ -20,6 +19,9 @@
 		1E6975E31CC4C58E0096E811 /* Vegetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DE1CC4C58E0096E811 /* Vegetable.swift */; };
 		1E6975E41CC4C58E0096E811 /* Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DF1CC4C58E0096E811 /* Waitlist.swift */; };
 		1E6975E61CC4CD520096E811 /* ParcelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */; };
+		1E6975E91CC500050096E811 /* ParcelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975E81CC500050096E811 /* ParcelTableViewCell.swift */; };
+		1E6975EE1CC51ABB0096E811 /* AddVegetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975ED1CC51ABB0096E811 /* AddVegetableViewController.swift */; };
+		1E6975F01CC51F650096E811 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975EF1CC51F650096E811 /* MapAnnotation.swift */; };
 		1E7B2F971CBBA78500DF7657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2F961CBBA78500DF7657 /* AppDelegate.swift */; };
 		1E7B2F9C1CBBA78600DF7657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E7B2F9A1CBBA78600DF7657 /* Main.storyboard */; };
 		1E7B2F9E1CBBA78600DF7657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7B2F9D1CBBA78600DF7657 /* Assets.xcassets */; };
@@ -50,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		1E1A73611CBD80AD007ECEEB /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
-		1E1A73631CBD84F8007ECEEB /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = ../../../IOS/Swift/TPFinal_JohannBerthet/TPFinal_JohannBerthet/MapAnnotation.swift; sourceTree = "<group>"; };
 		1E1A73671CBD8A51007ECEEB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1E3737BA1CBFAF600097ADC1 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +63,9 @@
 		1E6975DE1CC4C58E0096E811 /* Vegetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vegetable.swift; sourceTree = "<group>"; };
 		1E6975DF1CC4C58E0096E811 /* Waitlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waitlist.swift; sourceTree = "<group>"; };
 		1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDetailViewController.swift; sourceTree = "<group>"; };
+		1E6975E81CC500050096E811 /* ParcelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTableViewCell.swift; sourceTree = "<group>"; };
+		1E6975ED1CC51ABB0096E811 /* AddVegetableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddVegetableViewController.swift; sourceTree = "<group>"; };
+		1E6975EF1CC51F650096E811 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		1E7B2F931CBBA78500DF7657 /* WicaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WicaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7B2F961CBBA78500DF7657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E7B2F9B1CBBA78600DF7657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +112,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E6975E71CC4FF920096E811 /* UI Custom Items */ = {
+			isa = PBXGroup;
+			children = (
+				1E6975E81CC500050096E811 /* ParcelTableViewCell.swift */,
+			);
+			name = "UI Custom Items";
+			sourceTree = "<group>";
+		};
+		1E6975EA1CC518470096E811 /* Garden */ = {
+			isa = PBXGroup;
+			children = (
+				1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */,
+				1E4ACE361CBED294006011C7 /* GardenListViewController.swift */,
+				1E6975D91CC4C11F0096E811 /* ParcelListViewController.swift */,
+				1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */,
+			);
+			name = Garden;
+			sourceTree = "<group>";
+		};
+		1E6975EB1CC5185A0096E811 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				1E6975ED1CC51ABB0096E811 /* AddVegetableViewController.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		1E6975EC1CC518780096E811 /* Wiki */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Wiki;
+			sourceTree = "<group>";
+		};
 		1E7B2F8A1CBBA78500DF7657 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +171,7 @@
 		1E7B2F951CBBA78500DF7657 /* WicaApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E6975E71CC4FF920096E811 /* UI Custom Items */,
 				1E7B2FC81CBBC8B600DF7657 /* WebService */,
 				1E7B2FC51CBBA91400DF7657 /* Models */,
 				1E7B2FC41CBBA90900DF7657 /* ViewControllers */,
@@ -167,10 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				1E7B2FC61CBBB16D00DF7657 /* AddUserViewController.swift */,
-				1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */,
-				1E4ACE361CBED294006011C7 /* GardenListViewController.swift */,
-				1E6975D91CC4C11F0096E811 /* ParcelListViewController.swift */,
-				1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */,
+				1E6975EA1CC518470096E811 /* Garden */,
+				1E6975EB1CC5185A0096E811 /* Account */,
+				1E6975EC1CC518780096E811 /* Wiki */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,7 +216,7 @@
 		1E7B2FC51CBBA91400DF7657 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1E1A73631CBD84F8007ECEEB /* MapAnnotation.swift */,
+				1E6975EF1CC51F650096E811 /* MapAnnotation.swift */,
 				1E1A73611CBD80AD007ECEEB /* Garden.swift */,
 				1E3737BA1CBFAF600097ADC1 /* City.swift */,
 				1E6975DB1CC4C58E0096E811 /* Association.swift */,
@@ -405,6 +443,7 @@
 			files = (
 				1E1A73621CBD80AD007ECEEB /* Garden.swift in Sources */,
 				1E3B3AA11CBD770A00A69CDD /* CityMapViewController.swift in Sources */,
+				1E6975EE1CC51ABB0096E811 /* AddVegetableViewController.swift in Sources */,
 				1E7B2F971CBBA78500DF7657 /* AppDelegate.swift in Sources */,
 				1E7B2FCA1CBBC8E100DF7657 /* WebServiceHandler.swift in Sources */,
 				1E6975E41CC4C58E0096E811 /* Waitlist.swift in Sources */,
@@ -413,10 +452,11 @@
 				1E6975E21CC4C58E0096E811 /* Parcelhasvegetables.swift in Sources */,
 				1E4ACE371CBED294006011C7 /* GardenListViewController.swift in Sources */,
 				1E3737BB1CBFAF600097ADC1 /* City.swift in Sources */,
+				1E6975F01CC51F650096E811 /* MapAnnotation.swift in Sources */,
 				1E6975E61CC4CD520096E811 /* ParcelDetailViewController.swift in Sources */,
 				1E6975E01CC4C58E0096E811 /* Association.swift in Sources */,
 				1E6975E11CC4C58E0096E811 /* Parcel.swift in Sources */,
-				1E1A73641CBD84F8007ECEEB /* MapAnnotation.swift in Sources */,
+				1E6975E91CC500050096E811 /* ParcelTableViewCell.swift in Sources */,
 				1E6975DA1CC4C11F0096E811 /* ParcelListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

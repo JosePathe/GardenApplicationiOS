@@ -15,10 +15,12 @@ class WebServiceHandler: NSObject {
     internal static let allCitiesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/city"
     internal static let allParcelsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcel"
     internal static let allAssociationsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/associations"
+    internal static let allVegetablesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/vegetable"
+    internal static let allParcelHasVegetables: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcelhasvegetables"
     // Singleton initalization
     static let sharedInstance: WebServiceHandler = WebServiceHandler()
     
-    // MARK: - Get All Items Methods
+    // MARK: - GET All Items Methods
     
     // Method to get all the gardens
     func getAllGardens(completionHandler : ((response: NSArray) -> Void) ) {
@@ -72,7 +74,20 @@ class WebServiceHandler: NSObject {
         }
     }
     
-    // MARK: - Get Item By ID Methods
+    // Method to get all vegetables
+    func getAllVegetables(completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, WebServiceHandler.allVegetablesUrl)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
+    // MARK: - GET Item By ID Methods
     
     // Method to get all the gardens from a city
     func getAllGardensFromCity(url: String, cityId: Int, completionHandler : ((response: NSArray) -> Void) ) {
@@ -84,6 +99,33 @@ class WebServiceHandler: NSObject {
                 } else {
                     return completionHandler(response: [])
                 }
+        }
+    }
+    
+    // MARK: - POST Methods
+    
+    // Method to add vegetables to a parcel
+    func addVegetablesToParcel(url: String, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.POST, "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // MARK: - PUT Methods
+    
+    // Method to update vegetables to a parcel
+    func updateVegetablesFromParcel(url: String, id:Int, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.PUT, "\(url)/\(id)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // MARK: - DELETE Methods
+    
+    // Method to delete vegetables on a parcel
+    func deleteVegetablesFromParcel(url: String, id: Int){
+        Alamofire.request(.DELETE, "\(url)/\(id)").responseJSON { response in
+            print(response)
         }
     }
 }

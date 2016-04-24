@@ -7,6 +7,131 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Add Vegetable View Controller-->
+        <scene sceneID="pKS-5I-N5X">
+            <objects>
+                <viewController storyboardIdentifier="AddVegetableViewController" id="crM-pG-ROg" customClass="AddVegetableViewController" customModule="WicaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="82I-Nf-Y8j"/>
+                        <viewControllerLayoutGuide type="bottom" id="0du-HB-mUo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5IE-Ca-Yhe">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WET-CH-xNK">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="152" y="72" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KS-sc-dPJ">
+                                <rect key="frame" x="0.0" y="-216" width="320" height="216"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="120" width="400" height="216"/>
+                                </variation>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOt-Zy-D9J">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Ajouter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="145" y="344" width="110" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="onClickAddButton:" destination="crM-pG-ROg" eventType="touchUpInside" id="SQ4-a3-ecJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="WET-CH-xNK"/>
+                                <exclude reference="8KS-sc-dPJ"/>
+                                <exclude reference="IOt-Zy-D9J"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="WET-CH-xNK"/>
+                                <include reference="8KS-sc-dPJ"/>
+                                <include reference="IOt-Zy-D9J"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bt4-KZ-M8z"/>
+                    <connections>
+                        <outlet property="quantityTextField" destination="WET-CH-xNK" id="uR6-d3-jPC"/>
+                        <outlet property="vegetablePickerView" destination="8KS-sc-dPJ" id="tl4-tp-DjJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LwL-6Y-dsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="1134.75"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="SYu-3M-qLD">
+            <objects>
+                <tableViewController id="Img-bz-AUu" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lYa-AX-J7M">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="f7R-gg-CdA">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f7R-gg-CdA" id="zYt-oq-HlO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Img-bz-AUu" id="qeQ-Ha-KNd"/>
+                            <outlet property="delegate" destination="Img-bz-AUu" id="AcB-Vc-zZd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="M5W-Ss-kbm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-eU-Heb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086" y="1926.75"/>
+        </scene>
+        <!--Wiki-->
+        <scene sceneID="IRm-rh-YgD">
+            <objects>
+                <navigationController id="OxC-Zj-Jeo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wiki" id="U5X-Kr-6eu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6h-Do-YRu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Img-bz-AUu" kind="relationship" relationship="rootViewController" id="rnE-ap-uqF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eng-9M-fYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="1926.75"/>
+        </scene>
+        <!--Compte-->
+        <scene sceneID="xdi-Rp-NKt">
+            <objects>
+                <navigationController id="VGI-OE-6ld" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Compte" id="3Jh-Y9-oFe"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HLl-cF-eAo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="crM-pG-ROg" kind="relationship" relationship="rootViewController" id="vvp-Ur-TGb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CU-mI-sum" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="1134.75"/>
+        </scene>
         <!--Add User View Controller-->
         <scene sceneID="kuz-CX-sav">
             <objects>
@@ -96,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oe-bc-Akr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="1230"/>
+            <point key="canvasLocation" x="3591" y="1950"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bbZ-Dh-j5d">
@@ -109,17 +234,19 @@
                     </tabBar>
                     <connections>
                         <segue destination="wrI-RS-YSN" kind="relationship" relationship="viewControllers" id="oUn-8B-bEE"/>
+                        <segue destination="VGI-OE-6ld" kind="relationship" relationship="viewControllers" id="yom-SX-DV2"/>
+                        <segue destination="OxC-Zj-Jeo" kind="relationship" relationship="viewControllers" id="wYG-Uq-k8e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0F5-fz-Kna" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-870" y="719"/>
+            <point key="canvasLocation" x="-822" y="1134.75"/>
         </scene>
-        <!--Item-->
+        <!--Jardins-->
         <scene sceneID="X4H-tM-Yyx">
             <objects>
                 <navigationController id="wrI-RS-YSN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pQF-0M-fj5"/>
+                    <tabBarItem key="tabBarItem" title="Jardins" id="pQF-0M-fj5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ATj-aR-nvp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -191,7 +318,7 @@
         <!--Garden List View Controller-->
         <scene sceneID="jgQ-q2-JCc">
             <objects>
-                <viewController storyboardIdentifier="GardenListViewController" id="2wl-Jn-MBX" customClass="GardenListViewController" customModule="WicaApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GardenListViewController" automaticallyAdjustsScrollViewInsets="NO" id="2wl-Jn-MBX" customClass="GardenListViewController" customModule="WicaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A0K-ur-72R"/>
                         <viewControllerLayoutGuide type="bottom" id="DJ9-5n-P9H"/>
@@ -227,10 +354,10 @@
                                 <exclude reference="kPr-J7-M1W"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="coH-IB-lrW"/>
                                 <exclude reference="4Vq-G7-vkG"/>
                                 <exclude reference="RFa-6s-BVk"/>
                                 <exclude reference="pQG-Le-LeY"/>
-                                <exclude reference="coH-IB-lrW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -238,10 +365,10 @@
                                 <include reference="kPr-J7-M1W"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="coH-IB-lrW"/>
                                 <include reference="4Vq-G7-vkG"/>
                                 <include reference="RFa-6s-BVk"/>
                                 <include reference="pQG-Le-LeY"/>
-                                <include reference="coH-IB-lrW"/>
                             </mask>
                         </variation>
                     </view>
@@ -257,24 +384,62 @@
         <!--Parcel List View Controller-->
         <scene sceneID="RJh-5m-y2Y">
             <objects>
-                <viewController storyboardIdentifier="ParcelListViewController" id="dfo-Z2-x5t" customClass="ParcelListViewController" customModule="WicaApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParcelListViewController" automaticallyAdjustsScrollViewInsets="NO" id="dfo-Z2-x5t" customClass="ParcelListViewController" customModule="WicaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hKJ-Pq-gZJ"/>
                         <viewControllerLayoutGuide type="bottom" id="Eae-x9-RQp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JF2-ad-5rK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzV-fy-XML">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="wof-Vn-To1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ParcelCell" id="wof-Vn-To1" customClass="ParcelTableViewCell" customModule="WicaApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wof-Vn-To1" id="0Si-PB-clD">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pge-af-XNZ">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="8" y="11" width="190" height="21"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YA-as-4Tl">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="230" y="11" width="99" height="21"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="Pge-af-XNZ"/>
+                                                    <exclude reference="3YA-as-4Tl"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="Pge-af-XNZ"/>
+                                                    <include reference="3YA-as-4Tl"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="isFreeLabel" destination="3YA-as-4Tl" id="VvT-Mn-1py"/>
+                                            <outlet property="parcelLabel" destination="Pge-af-XNZ" id="8Z0-tG-ksA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -291,10 +456,10 @@
                                 <exclude reference="lzV-fy-XML"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="wcm-O7-FWb"/>
                                 <exclude reference="QAb-9I-ghH"/>
                                 <exclude reference="WLu-9o-j1v"/>
                                 <exclude reference="zPM-G3-D0b"/>
-                                <exclude reference="wcm-O7-FWb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -302,10 +467,10 @@
                                 <include reference="lzV-fy-XML"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="wcm-O7-FWb"/>
                                 <include reference="QAb-9I-ghH"/>
                                 <include reference="WLu-9o-j1v"/>
                                 <include reference="zPM-G3-D0b"/>
-                                <include reference="wcm-O7-FWb"/>
                             </mask>
                         </variation>
                     </view>
@@ -327,6 +492,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qyN-aG-UoY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qm0-Uf-bU0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhh-A1-fS0">

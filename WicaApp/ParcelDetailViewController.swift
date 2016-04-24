@@ -66,9 +66,9 @@ class ParcelDetailViewController: UIViewController {
         self.gardenNameLabel.text = ""
         self.areaLabel.text = "\(self.parcel.parcelSurface!) m²"
         if self.parcel.parcelIsFree == 1 {
-            self.isFreeLabel.text = "Occupée"
-        } else {
             self.isFreeLabel.text = "Libre"
+        } else {
+            self.isFreeLabel.text = "Occupée"
         }
         self.cityLabel.text = ""
         self.associationLabel.text = ""
