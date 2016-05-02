@@ -22,45 +22,16 @@ class ParcelDetailViewController: UIViewController {
     var garden:Garden?
     var city:City?
     var association:Association?
+    
+    // Loader
+    var overlayView:UIView = UIView(frame: UIScreen.mainScreen().bounds)
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Get current garden
-        WebServiceHandler.sharedInstance.getAllGardens({(response) -> Void in
-            let array:NSArray = response
-            for element in array {
-                let garden:Garden = Garden(object: element)
-                if self.parcel.parcelRefGarden == garden.gardenId {
-                    self.garden = garden
-                    self.gardenNameLabel.text = String(self.garden!.gardenAddress!)
-                }
-            }
-        })
-        
-        // Get current city
-        WebServiceHandler.sharedInstance.getAllCities({(response) -> Void in
-            let array:NSArray = response
-            for element in array {
-                let city:City = City(object: element)
-                if self.garden?.gardenRefCity == city.cityId {
-                    self.city = city
-                    self.cityLabel.text = String(self.city!.cityName!)
-                }
-            }
-        })
-        
-        // Get current asscociation
-        WebServiceHandler.sharedInstance.getAllAssociations({(response) -> Void in
-            let array:NSArray = response
-            for element in array {
-                let association:Association = Association(object: element)
-                if self.garden?.gardenRefAssociation == association.associationId {
-                    self.association = association
-                    self.associationLabel.text = String(self.association!.associationName!)
-                }
-            }
-        })
+        // Loader and overlay init
+        self.initLoading()
         
         // Initialize and provide info to text labels
         self.gardenNameLabel.text = ""
@@ -72,6 +43,35 @@ class ParcelDetailViewController: UIViewController {
         }
         self.cityLabel.text = ""
         self.associationLabel.text = ""
+        
+        // Get current garden
+        WebServiceHandler.sharedInstance.getGardenById(WebServiceHandler.allGardensUrl, gardenId: self.parcel.parcelRefGarden!, completionHandler: {(response) -> Void in
+            let dictionary:NSDictionary = response
+            self.garden = Garden(object: dictionary)
+            self.gardenNameLabel.text = self.garden?.gardenAddress!
+            
+            // Get current city
+            WebServiceHandler.sharedInstance.getCityById(WebServiceHandler.allCitiesUrl, cityId: self.garden!.gardenRefCity!, completionHandler: {(response) -> Void in
+                let dictionary:NSDictionary = response
+                self.city = City(object: dictionary)
+                self.cityLabel.text = self.city?.cityName!
+                
+                // Get current asscociation
+                WebServiceHandler.sharedInstance.getAssociationById(WebServiceHandler.allAssociationsUrl, associationId: (self.garden?.gardenRefAssociation)!, completionHandler: {(response) -> Void in
+                    let dictionary:NSDictionary = response
+                    self.association = Association(object: dictionary)
+                    
+                    if self.garden!.gardenRefAssociation == self.association?.associationId {
+                        self.associationLabel.text = self.association?.associationName!
+                    } else {
+                        self.associationLabel.text = "Mairie de \(self.city?.cityName)"
+                    }
+                    
+                    // Loader end
+                    self.completeLoading()
+                })
+            })
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,5 +89,20 @@ class ParcelDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func initLoading() -> Void {
+        //self.overlayView = UIView(frame: UIScreen.mainScreen().bounds)
+        self.overlayView.backgroundColor = UIColor(white: 255, alpha: 1)
+        //self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        self.activityIndicator.center = overlayView.center
+        self.overlayView.addSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        view.addSubview(overlayView)
+    }
+    
+    func completeLoading() -> Void {
+        self.activityIndicator.stopAnimating()
+        self.overlayView.removeFromSuperview()
+    }
 
 }

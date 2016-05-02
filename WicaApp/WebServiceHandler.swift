@@ -12,10 +12,10 @@ import Alamofire
 class WebServiceHandler: NSObject {
     // List of Urls form the webservice
     internal static let allGardensUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/gardens"
-    internal static let allCitiesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/city"
-    internal static let allParcelsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcel"
+    internal static let allCitiesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/cities"
+    internal static let allParcelsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcels"
     internal static let allAssociationsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/associations"
-    internal static let allVegetablesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/vegetable"
+    internal static let allVegetablesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/vegetables"
     internal static let allParcelHasVegetables: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcelhasvegetables"
     // Singleton initalization
     static let sharedInstance: WebServiceHandler = WebServiceHandler()
@@ -88,6 +88,46 @@ class WebServiceHandler: NSObject {
     }
     
     // MARK: - GET Item By ID Methods
+    
+    // Method to get a garden by ID
+    func getGardenById(url: String, gardenId: Int, completionHandler : ((response: NSDictionary
+        ) -> Void) ) {
+        Alamofire.request(.GET, "\(url)/\(gardenId)")
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
+        }
+    }
+    
+    // Method to get a city by ID
+    func getCityById(url: String, cityId: Int, completionHandler : ((response: NSDictionary) -> Void) ) {
+        Alamofire.request(.GET, "\(url)/\(cityId)")
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
+        }
+    }
+    
+    // Method to get an association by ID
+    func getAssociationById(url: String, associationId: Int, completionHandler : ((response: NSDictionary) -> Void) ) {
+        Alamofire.request(.GET, "\(url)/\(associationId)")
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
+        }
+    }
     
     // Method to get all the gardens from a city
     func getAllGardensFromCity(url: String, cityId: Int, completionHandler : ((response: NSArray) -> Void) ) {
