@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Alamofire
 
 class AddUserViewController: UIViewController {
     // UI items
+    
+    @IBOutlet weak var field_birthdate: UIDatePicker!
+    @IBOutlet weak var field_confirm_password: UITextField!
+    @IBOutlet weak var field_password: UITextField!
+    @IBOutlet weak var field_username: UITextField!
+    @IBOutlet weak var field_adress: UITextField!
+    @IBOutlet weak var field_firstname: UITextField!
+    @IBOutlet weak var field_name: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Button style
-        self.registerButton.layer.cornerRadius = 4;
+        //self.registerButton.layer.cornerRadius = 4;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,9 +38,34 @@ class AddUserViewController: UIViewController {
     // MARK: - Click listeners
     
     @IBAction func onClickRegisterButton(sender: AnyObject) {
-        WebServiceHandler.sharedInstance.getAllGardens({(response) -> Void in
-            print(response)
-        })
+        if (field_password.text == field_confirm_password.text){
+            
+            // Modify date format
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let selectedDate = dateFormatter.stringFromDate(field_birthdate.date)
+            
+            // Send parameters
+            let parameters : [ String : NSString] = [
+                "username": "\(field_username.text!)",
+                "password": "\(field_password.text!)",
+                "email": "\(field_adress.text!)",
+                "lastname": "\(field_name.text!)",
+                "firstname": "\(field_firstname.text!)",
+                "date_birth": "\(selectedDate)"
+            ]
+            
+            WebServiceHandler.sharedInstance.addUser(WebServiceHandler.allUsersUrl, parameters: parameters)
+        }
+        else{
+            
+            let alert = UIAlertController(title: "Erreur", message: "Les mots de passe ne sont pas les mêmes", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     /*

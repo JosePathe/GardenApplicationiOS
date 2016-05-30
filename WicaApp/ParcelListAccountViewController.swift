@@ -1,19 +1,19 @@
 //
-//  ParcelListViewController.swift
+//  ParcelListAccountViewController.swift
 //  WicaApp
 //
-//  Created by Johann Berthet on 18/04/2016.
+//  Created by Johann Berthet on 09/05/2016.
 //  Copyright © 2016 Johann Berthet. All rights reserved.
 //
 
 import UIKit
 
-class ParcelListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ParcelListAccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // UI items
     @IBOutlet weak var parcelTableView: UITableView!
     
     // Class attributes
-    var garden:Garden = Garden(json: nil)
+    var user:User = User(json: nil)
     var parcelList:NSMutableArray = []
     var selectedParcel:Int = 0
 
@@ -29,7 +29,7 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
             let array:NSArray = response
             for element in array {
                 let parcel:Parcel = Parcel(object: element)
-                if self.garden.gardenId == parcel.parcelRefGarden {
+                if (parcel.parcelRefUser != nil) && (self.user.internalIdentifier! == String(parcel.parcelRefUser!)) {
                     self.parcelList.addObject(parcel)
                 }
             }
@@ -53,16 +53,9 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ParcelCell", forIndexPath: indexPath) as! ParcelTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let parcel:Parcel = self.parcelList[indexPath.row] as! Parcel
-        cell.parcelLabel.text = String.init("Parcelle n°\(String(indexPath.row+1))")
-        if parcel.parcelIsFree == 1 {
-            cell.isFreeLabel.text = "Libre"
-            cell.isFreeLabel.textColor = UIColor.greenColor()
-        } else {
-            cell.isFreeLabel.text = "Occupée"
-            cell.isFreeLabel.textColor = UIColor.redColor()
-        }
+        cell.textLabel!.text = parcel.parcelSurface
         
         return cell
     }
@@ -71,15 +64,18 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedParcel = indexPath.row
-        self.performSegueWithIdentifier("toParcelDetail", sender: self)
+        //self.performSegueWithIdentifier("toParcelDetail", sender: self)
     }
+    
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let parceDetailViewController = segue.destinationViewController as! ParcelDetailViewController
-        parceDetailViewController.parcel = self.parcelList[self.selectedParcel] as! Parcel
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }

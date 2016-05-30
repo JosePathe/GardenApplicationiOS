@@ -15,6 +15,7 @@ class ParcelDetailViewController: UIViewController {
     @IBOutlet weak var isFreeLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var associationLabel: UILabel!
+    @IBOutlet weak var subscribeButton: UIButton!
     
     
     // Class attributes
@@ -68,7 +69,7 @@ class ParcelDetailViewController: UIViewController {
                     }
                     
                     // Loader end
-                    self.completeLoading()
+                    //self.completeLoading()
                 })
             })
         })
@@ -79,6 +80,14 @@ class ParcelDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onClickSubscribeButton(sender: UIButton) {
+        let parameters : [ String : NSString] = [
+            "wait_list_ref_garden": "\(self.garden!.gardenId!)",
+            "wait_list_ref_user": "\(7)"
+        ]
+        
+        WebServiceHandler.sharedInstance.addSubscribe(WebServiceHandler.allWaitLists, key: "hBwVkMMSzaUkwJNhpk3i_yNimjrtyH5R", parameters: parameters)
+    }
 
     /*
     // MARK: - Navigation

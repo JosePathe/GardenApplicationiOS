@@ -17,6 +17,12 @@ class WebServiceHandler: NSObject {
     internal static let allAssociationsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/associations"
     internal static let allVegetablesUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/vegetables"
     internal static let allParcelHasVegetables: String = "http://wica.esy.es/advanced/frontend/web/index.php/parcelhasvegetables"
+    internal static let allUsersUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/users"
+    internal static let allWaitLists: String = "http://wica.esy.es/advanced/frontend/web/index.php/waitlists"
+    internal static let loginConnection: String = "http://wica.esy.es/advanced/frontend/web/index.php/logins"
+    internal static let allTrocsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/trocs"
+    internal static let allHelpsUrl: String = "http://wica.esy.es/advanced/frontend/web/index.php/helps"
+    
     // Singleton initalization
     static let sharedInstance: WebServiceHandler = WebServiceHandler()
     
@@ -87,6 +93,59 @@ class WebServiceHandler: NSObject {
         }
     }
     
+    // Method to get all the waitlists
+    func getAllWaitList(completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, WebServiceHandler.allWaitLists)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
+    // Method to get all the gardens from a city
+    func getAllGardensFromCity(url: String, cityId: Int, completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, url)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
+    // Method to get all trocs
+    func getAllTrocs(completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, WebServiceHandler.allTrocsUrl)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
+    // Method to get all helps
+    func getAllHelps(completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, WebServiceHandler.allHelpsUrl)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
+    
     // MARK: - GET Item By ID Methods
     
     // Method to get a garden by ID
@@ -129,24 +188,53 @@ class WebServiceHandler: NSObject {
         }
     }
     
-    // Method to get all the gardens from a city
-    func getAllGardensFromCity(url: String, cityId: Int, completionHandler : ((response: NSArray) -> Void) ) {
-        Alamofire.request(.GET, url)
+    // Method to get an user by ID
+    func getUserById(url: String, userId: Int, completionHandler : ((response: NSDictionary) -> Void) ) {
+        Alamofire.request(.GET, "\(url)/\(userId)")
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                    return completionHandler(response: JSON as! NSArray)
+                    return completionHandler(response: JSON as! NSDictionary)
                 } else {
-                    return completionHandler(response: [])
+                    return completionHandler(response: [:])
                 }
         }
     }
+    
+    
     
     // MARK: - POST Methods
     
     // Method to add vegetables to a parcel
     func addVegetablesToParcel(url: String, key: String, parameters: [String: AnyObject]){
         Alamofire.request(.POST, "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // Method to subcribe in garden
+    func addSubscribe(url: String, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.POST,  "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // Method to connect
+    func connectionLogin(url: String, parameters: [String: AnyObject], completionHandler : ((response: NSDictionary) -> Void) ) {
+        Alamofire.request(.POST, WebServiceHandler.loginConnection, parameters: parameters, encoding: .JSON)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
+        }
+    }
+    
+    // Method to add user
+    func addUser(url: String, parameters: [String: AnyObject]){
+        Alamofire.request(.POST, WebServiceHandler.allUsersUrl, parameters: parameters, encoding: .JSON).responseJSON { response in
             print(response)
         }
     }
