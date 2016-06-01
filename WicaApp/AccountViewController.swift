@@ -13,7 +13,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var accountTableView: UITableView!
     
     // Class attributes
-    var accountMenuList: NSArray = ["Mes listes d'attente", "Mes parcelles", "Mon compte"]
+    var accountMenuList: NSArray = ["Mes listes d'attente", "Ma parcelle", "Mon compte"]
     var user:User = User(json: nil)
 
     override func viewDidLoad() {

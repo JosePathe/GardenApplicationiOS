@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E081C521CFD7906004D87CC /* ParcelAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E081C511CFD7906004D87CC /* ParcelAccountDetailViewController.swift */; };
+		1E081C581CFDB8EB004D87CC /* Parcelhasvegetables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E081C571CFDB8EB004D87CC /* Parcelhasvegetables.swift */; };
+		1E081C5A1CFDC0F7004D87CC /* VegetableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E081C591CFDC0F7004D87CC /* VegetableTableViewCell.swift */; };
 		1E0E173C1CE0797B0085A044 /* ParcelListAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */; };
 		1E0E17401CE0CFAE0085A044 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173D1CE0CFAE0085A044 /* ConnectionViewController.swift */; };
 		1E0E17411CE0CFAE0085A044 /* MyWaitListListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */; };
@@ -18,7 +21,6 @@
 		1E6975DA1CC4C11F0096E811 /* ParcelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975D91CC4C11F0096E811 /* ParcelListViewController.swift */; };
 		1E6975E01CC4C58E0096E811 /* Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DB1CC4C58E0096E811 /* Association.swift */; };
 		1E6975E11CC4C58E0096E811 /* Parcel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DC1CC4C58E0096E811 /* Parcel.swift */; };
-		1E6975E21CC4C58E0096E811 /* Parcelhasvegetables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DD1CC4C58E0096E811 /* Parcelhasvegetables.swift */; };
 		1E6975E31CC4C58E0096E811 /* Vegetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DE1CC4C58E0096E811 /* Vegetable.swift */; };
 		1E6975E41CC4C58E0096E811 /* Waitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975DF1CC4C58E0096E811 /* Waitlist.swift */; };
 		1E6975E61CC4CD520096E811 /* ParcelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */; };
@@ -64,6 +66,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E081C511CFD7906004D87CC /* ParcelAccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelAccountDetailViewController.swift; sourceTree = "<group>"; };
+		1E081C571CFDB8EB004D87CC /* Parcelhasvegetables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcelhasvegetables.swift; sourceTree = "<group>"; };
+		1E081C591CFDC0F7004D87CC /* VegetableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VegetableTableViewCell.swift; sourceTree = "<group>"; };
 		1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelListAccountViewController.swift; sourceTree = "<group>"; };
 		1E0E173D1CE0CFAE0085A044 /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWaitListListViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +80,6 @@
 		1E6975D91CC4C11F0096E811 /* ParcelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelListViewController.swift; sourceTree = "<group>"; };
 		1E6975DB1CC4C58E0096E811 /* Association.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Association.swift; sourceTree = "<group>"; };
 		1E6975DC1CC4C58E0096E811 /* Parcel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcel.swift; sourceTree = "<group>"; };
-		1E6975DD1CC4C58E0096E811 /* Parcelhasvegetables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parcelhasvegetables.swift; sourceTree = "<group>"; };
 		1E6975DE1CC4C58E0096E811 /* Vegetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vegetable.swift; sourceTree = "<group>"; };
 		1E6975DF1CC4C58E0096E811 /* Waitlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Waitlist.swift; sourceTree = "<group>"; };
 		1E6975E51CC4CD520096E811 /* ParcelDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelDetailViewController.swift; sourceTree = "<group>"; };
@@ -138,10 +142,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E081C531CFD7B1F004D87CC /* WaitList */ = {
+			isa = PBXGroup;
+			children = (
+				1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */,
+			);
+			name = WaitList;
+			sourceTree = "<group>";
+		};
+		1E081C541CFD7B26004D87CC /* Parcel */ = {
+			isa = PBXGroup;
+			children = (
+				1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */,
+				1E081C511CFD7906004D87CC /* ParcelAccountDetailViewController.swift */,
+				1E6975ED1CC51ABB0096E811 /* AddVegetableViewController.swift */,
+			);
+			name = Parcel;
+			sourceTree = "<group>";
+		};
 		1E6975E71CC4FF920096E811 /* UI Custom Items */ = {
 			isa = PBXGroup;
 			children = (
 				1E6975E81CC500050096E811 /* ParcelTableViewCell.swift */,
+				1E081C591CFDC0F7004D87CC /* VegetableTableViewCell.swift */,
 			);
 			name = "UI Custom Items";
 			sourceTree = "<group>";
@@ -160,12 +183,10 @@
 		1E6975EB1CC5185A0096E811 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				1EEDCAE51CFC848700CB8732 /* MarketPlace */,
 				1EC90C291CF3446E0095DDFB /* Connection */,
+				1E081C531CFD7B1F004D87CC /* WaitList */,
+				1E081C541CFD7B26004D87CC /* Parcel */,
 				1EE3FBF41CD771E2009B5BAA /* AccountViewController.swift */,
-				1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */,
-				1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */,
-				1E6975ED1CC51ABB0096E811 /* AddVegetableViewController.swift */,
 				1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */,
 			);
 			name = Account;
@@ -239,6 +260,7 @@
 			children = (
 				1E6975EA1CC518470096E811 /* Garden */,
 				1E6975EB1CC5185A0096E811 /* Account */,
+				1EEDCAE51CFC848700CB8732 /* MarketPlace */,
 				1E6975EC1CC518780096E811 /* Wiki */,
 			);
 			name = ViewControllers;
@@ -249,10 +271,10 @@
 			children = (
 				1E6975EF1CC51F650096E811 /* MapAnnotation.swift */,
 				1E1A73611CBD80AD007ECEEB /* Garden.swift */,
+				1E081C571CFDB8EB004D87CC /* Parcelhasvegetables.swift */,
 				1E3737BA1CBFAF600097ADC1 /* City.swift */,
 				1E6975DB1CC4C58E0096E811 /* Association.swift */,
 				1E6975DC1CC4C58E0096E811 /* Parcel.swift */,
-				1E6975DD1CC4C58E0096E811 /* Parcelhasvegetables.swift */,
 				1E6975DE1CC4C58E0096E811 /* Vegetable.swift */,
 				1E6975DF1CC4C58E0096E811 /* Waitlist.swift */,
 				1EC90C271CF331C00095DDFB /* User.swift */,
@@ -283,10 +305,10 @@
 			isa = PBXGroup;
 			children = (
 				1EEDCAEA1CFC849900CB8732 /* MarketPlaceViewController.swift */,
-				1EEDCAE61CFC849900CB8732 /* HelpPlaceCreateViewController.swift */,
 				1EEDCAE71CFC849900CB8732 /* HelpPlaceDetailsViewController.swift */,
-				1EEDCAE81CFC849900CB8732 /* MarketPlaceCreateViewController.swift */,
+				1EEDCAE61CFC849900CB8732 /* HelpPlaceCreateViewController.swift */,
 				1EEDCAE91CFC849900CB8732 /* MarketPlaceDetailsViewController.swift */,
+				1EEDCAE81CFC849900CB8732 /* MarketPlaceCreateViewController.swift */,
 			);
 			name = MarketPlace;
 			sourceTree = "<group>";
@@ -505,13 +527,15 @@
 				1E7B2FCA1CBBC8E100DF7657 /* WebServiceHandler.swift in Sources */,
 				1E6975E41CC4C58E0096E811 /* Waitlist.swift in Sources */,
 				1E7B2FC71CBBB16D00DF7657 /* AddUserViewController.swift in Sources */,
+				1E081C5A1CFDC0F7004D87CC /* VegetableTableViewCell.swift in Sources */,
 				1E0E17411CE0CFAE0085A044 /* MyWaitListListViewController.swift in Sources */,
 				1EEDCAEC1CFC849900CB8732 /* HelpPlaceDetailsViewController.swift in Sources */,
+				1E081C581CFDB8EB004D87CC /* Parcelhasvegetables.swift in Sources */,
 				1E6975E31CC4C58E0096E811 /* Vegetable.swift in Sources */,
 				1EEDCAEE1CFC849900CB8732 /* MarketPlaceDetailsViewController.swift in Sources */,
 				1EE3FBF51CD771E2009B5BAA /* AccountViewController.swift in Sources */,
-				1E6975E21CC4C58E0096E811 /* Parcelhasvegetables.swift in Sources */,
 				1E0E173C1CE0797B0085A044 /* ParcelListAccountViewController.swift in Sources */,
+				1E081C521CFD7906004D87CC /* ParcelAccountDetailViewController.swift in Sources */,
 				1EEDCAED1CFC849900CB8732 /* MarketPlaceCreateViewController.swift in Sources */,
 				1E4ACE371CBED294006011C7 /* GardenListViewController.swift in Sources */,
 				1E0E17401CE0CFAE0085A044 /* ConnectionViewController.swift in Sources */,

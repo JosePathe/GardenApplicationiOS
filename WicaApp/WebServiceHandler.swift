@@ -145,6 +145,19 @@ class WebServiceHandler: NSObject {
         }
     }
     
+    // Method to get all parcelhasvegetables
+    func getAllParcelHasVegetables(completionHandler : ((response: NSArray) -> Void) ) {
+        Alamofire.request(.GET, WebServiceHandler.allParcelHasVegetables)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSArray)
+                } else {
+                    return completionHandler(response: [])
+                }
+        }
+    }
+    
     
     // MARK: - GET Item By ID Methods
     
@@ -201,14 +214,32 @@ class WebServiceHandler: NSObject {
         }
     }
     
+    // Method to get a parcelhasvegetables by ID
+    func getParcelHasVegetablesById(url: String, parcelhasvegetablesId: Int, completionHandler : ((response: NSDictionary) -> Void) ) {
+        Alamofire.request(.GET, "\(url)/\(parcelhasvegetablesId)")
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
+        }
+    }
+    
     
     
     // MARK: - POST Methods
     
     // Method to add vegetables to a parcel
-    func addVegetablesToParcel(url: String, key: String, parameters: [String: AnyObject]){
+    func addVegetablesToParcel(url: String, key: String, parameters: [String: AnyObject], completionHandler : ((response: NSDictionary) -> Void)){
         Alamofire.request(.POST, "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
-            print(response)
+            
+            if let JSON = response.result.value {
+                return completionHandler(response: JSON as! NSDictionary)
+            } else {
+                return completionHandler(response: [:])
+            }
         }
     }
     
@@ -242,18 +273,27 @@ class WebServiceHandler: NSObject {
     // MARK: - PUT Methods
     
     // Method to update vegetables to a parcel
-    func updateVegetablesFromParcel(url: String, id:Int, key: String, parameters: [String: AnyObject]){
+    func updateVegetablesFromParcel(url: String, id:Int, key: String, parameters: [String: AnyObject], completionHandler : ((response: NSDictionary) -> Void)){
         Alamofire.request(.PUT, "\(url)/\(id)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
-            print(response)
+            
+                if let JSON = response.result.value {
+                    return completionHandler(response: JSON as! NSDictionary)
+                } else {
+                    return completionHandler(response: [:])
+                }
         }
     }
     
     // MARK: - DELETE Methods
     
     // Method to delete vegetables on a parcel
-    func deleteVegetablesFromParcel(url: String, id: Int){
-        Alamofire.request(.DELETE, "\(url)/\(id)").responseJSON { response in
-            print(response)
+    func deleteVegetablesFromParcel(url: String, id: Int, key: String, completionHandler : ((response: Bool) -> Void)){
+        Alamofire.request(.DELETE, "\(url)/\(id)?key=\(key)", encoding: .JSON).responseJSON { response in
+            if response.result.value != nil {
+                return completionHandler(response: response.result.isSuccess)
+            } else {
+                return completionHandler(response: response.result.isFailure)
+            }
         }
     }
 }

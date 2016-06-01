@@ -10,22 +10,25 @@ import Alamofire
 
 class MarketPlaceDetailsViewController: UIViewController{
     
-    //var trocArray: [Troc]
-    
+    // UI items
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var quantitySellLabel: UILabel!
     @IBOutlet weak var vegetableSellLabel: UILabel!
     @IBOutlet weak var quantityOfferLabel: UILabel!
     @IBOutlet weak var vegetableOfferLabel: UILabel!
+    @IBOutlet weak var acceptButton: UIButton!
     
+    // Class attrivutes
     var UserArray: [User]! = [User]()
     var VegetableOfferArray: [Vegetable]! = [Vegetable]()
-    
     var troc:Troc = Troc(json: nil)
     var user:User = User(json: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button style
+        self.acceptButton.layer.cornerRadius = 4;
         
         WebServiceHandler.sharedInstance.getUserById(WebServiceHandler.allUsersUrl, userId: Int(troc.trocUserSell!)!, completionHandler: {(response) -> Void in
             self.user = User(object: response)
@@ -40,9 +43,7 @@ class MarketPlaceDetailsViewController: UIViewController{
                 self.VegetableOfferArray.append(vegetable)
             }
             for obj in self.VegetableOfferArray{
-                print(obj.vegetableId)
                 if obj.vegetableId! == 10{
-                    print(obj.vegetableName)
                     self.vegetableOfferLabel.text = obj.vegetableName
                 }
                 if obj.vegetableId! == Int(self.troc.trocRefVegetableWanted!)!{

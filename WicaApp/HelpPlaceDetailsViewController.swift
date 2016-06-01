@@ -9,17 +9,21 @@
 import Alamofire
 
 class HelpPlaceDetailsViewController: UIViewController{
-    
-    //var trocArray: [Troc]
-    
+    // UI items
     @IBOutlet weak var pseudoLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var acceptButton: UIButton!
     
+    // Class attributes
     var help:Help = Help(json: nil)
     var user:User = User(json: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button style
+        self.acceptButton.layer.cornerRadius = 4;
+        
         WebServiceHandler.sharedInstance.getUserById(WebServiceHandler.allUsersUrl, userId: Int(help.helpUser!), completionHandler: {(response) -> Void in
             self.user = User(object: response)
             

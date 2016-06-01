@@ -21,6 +21,9 @@ class ConnectionViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button style
+        self.button_connection.layer.cornerRadius = 4;
     }
     
     override func didReceiveMemoryWarning() {

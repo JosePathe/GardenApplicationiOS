@@ -22,8 +22,6 @@ class CityMapViewController: UIViewController, MKMapViewDelegate {
         
         // Set this ViewController as map delegate
         self.mapView.delegate = self
-        
-        
 
         // Webservice call
         WebServiceHandler.sharedInstance.getAllCities({(response) -> Void in

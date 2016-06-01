@@ -9,26 +9,27 @@
 import Alamofire
 
 class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    // UI items
     @IBOutlet weak var tableViewMarket: UITableView!
-    
     @IBOutlet weak var segmentControlOffreDemande: UISegmentedControl!
+    @IBOutlet weak var addMarketItemButton: UIButton!
     
+    // Class attributes
     var TrocArray: [Troc]! = [Troc]()
     var HelpArray: [Help]! = [Help]()
-    
     var selectedTroc:Int = 0
     var selectedHelp:Int = 0
-    
-    //var trocArray: [Troc]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Button style
+        self.addMarketItemButton.layer.cornerRadius = 4;
+        
         self.tableViewMarket.dataSource = self
         self.tableViewMarket.delegate = self
         
-        //Appel WS pour tester le module//
+        // Appel WS pour tester le module
         let parameters : [ String : NSString] = [
             "username": "\("basicUser")",
             "password": "\("basicUser")"
@@ -39,7 +40,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
                     let array:NSArray = response
                     for element in array {
                         let troc: Troc = Troc(object: element)
-                        print(element)
                         self.TrocArray.append(troc)
                     }
                     self.tableViewMarket.reloadData()
@@ -49,7 +49,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
                     let array:NSArray = response
                     for element in array {
                         let help: Help = Help(object: element)
-                        print(element)
                         self.HelpArray.append(help)
                     }
                     self.tableViewMarket.reloadData()

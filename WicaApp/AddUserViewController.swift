@@ -26,7 +26,7 @@ class AddUserViewController: UIViewController {
         super.viewDidLoad()
 
         // Button style
-        //self.registerButton.layer.cornerRadius = 4;
+        self.registerButton.layer.cornerRadius = 4;
         
     }
 

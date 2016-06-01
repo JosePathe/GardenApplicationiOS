@@ -11,6 +11,7 @@ import UIKit
 class ParcelListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // UI items
     @IBOutlet weak var parcelTableView: UITableView!
+    @IBOutlet weak var subscribeButton: UIButton!
     
     // Class attributes
     var garden:Garden = Garden(json: nil)
@@ -19,6 +20,9 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button style
+        self.subscribeButton.layer.cornerRadius = 4;
 
         // Set this ViewController as list datasource and list delegate
         self.parcelTableView.dataSource = self
@@ -44,6 +48,15 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onClickSubscribeButton(sender: UIButton) {
+        let parameters : [ String : NSString] = [
+            "wait_list_ref_garden": "\(self.garden.gardenId!)",
+            "wait_list_ref_user": "\(7)"
+        ]
+        
+        WebServiceHandler.sharedInstance.addSubscribe(WebServiceHandler.allWaitLists, key: "hBwVkMMSzaUkwJNhpk3i_yNimjrtyH5R", parameters: parameters)
     }
     
     // MARK: - TableView Datasource Methods

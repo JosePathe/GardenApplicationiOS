@@ -15,13 +15,18 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var addButton: UIButton!
     
     // Class attributes
-    var parcel:Parcel?
+    var user:User = User(json: nil)
+    var parcel:Parcel = Parcel(json: nil)
+    var parcelhasvegetables:Parcelhasvegetables?
     var vegetableList: NSMutableArray = []
     var selectedVegetable:Int = 0
     var quantity:Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button style
+        self.addButton.layer.cornerRadius = 4;
 
         // Set this ViewController as picker datasource and picker delegate
         self.vegetablePickerView.dataSource = self
@@ -71,34 +76,40 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
         if checkFields() {
             let vegetable:Vegetable = self.vegetableList[self.selectedVegetable] as! Vegetable
             
-            let parcelId:Int = 1
-            print(parcelId)
+            print(self.parcel.parcelId!)
             print(vegetable.vegetableId!)
             print(self.quantity)
             
             let parameters = [
-                "parcel_has_vegetable_parcel": "\(parcelId)",
+                "parcel_has_vegetable_parcel": "\(self.parcel.parcelId!)",
                 "parcel_has_vegetable_vegetable": "\(vegetable.vegetableId!)",
                 "parcel_has_vegetable_quantity": "\(self.quantity)"
             ]
             
-            WebServiceHandler.sharedInstance.addVegetablesToParcel(WebServiceHandler.allParcelHasVegetables, key: "hBwVkMMSzaUkwJNhpk3i_yNimjrtyH5R", parameters: parameters)
+            WebServiceHandler.sharedInstance.addVegetablesToParcel(WebServiceHandler.allParcelHasVegetables, key: user.authKey!, parameters: parameters, completionHandler: {(response) -> Void in
+                let dictionary:NSDictionary = response
+                let currentParcelhasvegetables = Parcelhasvegetables(object: dictionary)
+                let currentParcelhasvegetablesId:Int = currentParcelhasvegetables.parcelHasVegetableId!
+                
+                // Get current parcelhasvegetables
+                WebServiceHandler.sharedInstance.getParcelHasVegetablesById(WebServiceHandler.allParcelHasVegetables, parcelhasvegetablesId: currentParcelhasvegetablesId, completionHandler: {(response) -> Void in
+                    let dictionary:NSDictionary = response
+                    self.parcelhasvegetables = Parcelhasvegetables(object: dictionary)
+                    
+                    let parcelAccountDetailViewController:ParcelAccountDetailViewController = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.endIndex)!-2] as! ParcelAccountDetailViewController
+                    parcelAccountDetailViewController.parcelhasvegetablesList.append(self.parcelhasvegetables!)
+                    parcelAccountDetailViewController.vegetableList.addObject(vegetable)
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
+            })
+            
+            
         }
     }
     
     func checkFields() -> Bool {
         let quantityString:String = self.quantityTextField.text!
         let vegetable:Vegetable = self.vegetableList[self.selectedVegetable] as! Vegetable
-        
-        // Check parcel id is defined
-        /*if ((self.parcel?.parcelId = 0) == nil) {
-            let alert = UIAlertController(title: "Erreur", message: "Parcelle invalide", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
-            }))
-            presentViewController(alert, animated: true, completion: nil)
-            
-            return false
-        }*/
         
         // Check quantity input is an Int value
         if let value = Int(quantityString) {
@@ -125,14 +136,13 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
         return true
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
+        parcelAccountDetailViewController.parcel = self.parcel
+        parcelAccountDetailViewController.user = self.user
     }
-    */
-
 }

@@ -1,7 +1,7 @@
 //
 //  Parcelhasvegetables.swift
 //
-//  Created by Johann Berthet on 18/04/2016
+//  Created by Johann Berthet on 31/05/2016
 //  Copyright (c) . All rights reserved.
 //
 
@@ -11,15 +11,17 @@ import SwiftyJSON
 public class Parcelhasvegetables: NSObject {
 
     // MARK: Declaration for string constants to be used to decode and also serialize.
-	internal let kParcelhasvegetablesParcelHasVegetableIdKey: String = "parcel_has_vegetable_id"
 	internal let kParcelhasvegetablesParcelHasVegetableParcelKey: String = "parcel_has_vegetable_parcel"
 	internal let kParcelhasvegetablesParcelHasVegetableVegetableKey: String = "parcel_has_vegetable_vegetable"
+	internal let kParcelhasvegetablesParcelHasVegetableIdKey: String = "parcel_has_vegetable_id"
+	internal let kParcelhasvegetablesParcelHasVegetableQuantityKey: String = "parcel_has_vegetable_quantity"
 
 
     // MARK: Properties
-	public var parcelHasVegetableId: Int?
 	public var parcelHasVegetableParcel: Int?
 	public var parcelHasVegetableVegetable: Int?
+	public var parcelHasVegetableId: Int?
+	public var parcelHasVegetableQuantity: Int?
 
 
     // MARK: SwiftyJSON Initalizers
@@ -38,9 +40,10 @@ public class Parcelhasvegetables: NSObject {
     - returns: An initalized instance of the class.
     */
     public init(json: JSON) {
-		parcelHasVegetableId = json[kParcelhasvegetablesParcelHasVegetableIdKey].int
 		parcelHasVegetableParcel = json[kParcelhasvegetablesParcelHasVegetableParcelKey].int
 		parcelHasVegetableVegetable = json[kParcelhasvegetablesParcelHasVegetableVegetableKey].int
+		parcelHasVegetableId = json[kParcelhasvegetablesParcelHasVegetableIdKey].int
+		parcelHasVegetableQuantity = json[kParcelhasvegetablesParcelHasVegetableQuantityKey].int
 
     }
 
@@ -51,14 +54,17 @@ public class Parcelhasvegetables: NSObject {
     public func dictionaryRepresentation() -> [String : AnyObject ] {
 
         var dictionary: [String : AnyObject ] = [ : ]
-		if parcelHasVegetableId != nil {
-			dictionary.updateValue(parcelHasVegetableId!, forKey: kParcelhasvegetablesParcelHasVegetableIdKey)
-		}
 		if parcelHasVegetableParcel != nil {
 			dictionary.updateValue(parcelHasVegetableParcel!, forKey: kParcelhasvegetablesParcelHasVegetableParcelKey)
 		}
 		if parcelHasVegetableVegetable != nil {
 			dictionary.updateValue(parcelHasVegetableVegetable!, forKey: kParcelhasvegetablesParcelHasVegetableVegetableKey)
+		}
+		if parcelHasVegetableId != nil {
+			dictionary.updateValue(parcelHasVegetableId!, forKey: kParcelhasvegetablesParcelHasVegetableIdKey)
+		}
+		if parcelHasVegetableQuantity != nil {
+			dictionary.updateValue(parcelHasVegetableQuantity!, forKey: kParcelhasvegetablesParcelHasVegetableQuantityKey)
 		}
 
         return dictionary
@@ -66,16 +72,18 @@ public class Parcelhasvegetables: NSObject {
 
     // MARK: NSCoding Protocol
     required public init(coder aDecoder: NSCoder) {
-		self.parcelHasVegetableId = aDecoder.decodeObjectForKey(kParcelhasvegetablesParcelHasVegetableIdKey) as? Int
 		self.parcelHasVegetableParcel = aDecoder.decodeObjectForKey(kParcelhasvegetablesParcelHasVegetableParcelKey) as? Int
 		self.parcelHasVegetableVegetable = aDecoder.decodeObjectForKey(kParcelhasvegetablesParcelHasVegetableVegetableKey) as? Int
+		self.parcelHasVegetableId = aDecoder.decodeObjectForKey(kParcelhasvegetablesParcelHasVegetableIdKey) as? Int
+		self.parcelHasVegetableQuantity = aDecoder.decodeObjectForKey(kParcelhasvegetablesParcelHasVegetableQuantityKey) as? Int
 
     }
 
     public func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(parcelHasVegetableId, forKey: kParcelhasvegetablesParcelHasVegetableIdKey)
 		aCoder.encodeObject(parcelHasVegetableParcel, forKey: kParcelhasvegetablesParcelHasVegetableParcelKey)
 		aCoder.encodeObject(parcelHasVegetableVegetable, forKey: kParcelhasvegetablesParcelHasVegetableVegetableKey)
+		aCoder.encodeObject(parcelHasVegetableId, forKey: kParcelhasvegetablesParcelHasVegetableIdKey)
+		aCoder.encodeObject(parcelHasVegetableQuantity, forKey: kParcelhasvegetablesParcelHasVegetableQuantityKey)
 
     }
 

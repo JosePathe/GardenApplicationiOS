@@ -64,18 +64,17 @@ class ParcelListAccountViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedParcel = indexPath.row
-        //self.performSegueWithIdentifier("toParcelDetail", sender: self)
+        self.performSegueWithIdentifier("toParcelAccountDetail", sender: self)
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
+        parcelAccountDetailViewController.parcel = self.parcelList[self.selectedParcel] as! Parcel
+        parcelAccountDetailViewController.user = self.user
     }
-    */
 
 }
