@@ -43,7 +43,8 @@ class MarketPlaceDetailsViewController: UIViewController{
                 self.VegetableOfferArray.append(vegetable)
             }
             for obj in self.VegetableOfferArray{
-                if obj.vegetableId! == 10{
+                if obj.vegetableId! ==
+                    Int(self.troc.trocRefVegetableOffer!){
                     self.vegetableOfferLabel.text = obj.vegetableName
                 }
                 if obj.vegetableId! == Int(self.troc.trocRefVegetableWanted!)!{
@@ -58,7 +59,11 @@ class MarketPlaceDetailsViewController: UIViewController{
     }
     
     @IBAction func buttonAccept(sender: UIButton) {
+        let parameters = [
+            "troc_user_accept": "\(self.user.internalIdentifier!)"
+        ]
         
+        WebServiceHandler.sharedInstance.updateAcceptTroc(WebServiceHandler.allTrocsUrl, id: Int(troc.trocId!)!, key: self.user.authKey!, parameters: parameters)
     }
     
     override func didReceiveMemoryWarning() {

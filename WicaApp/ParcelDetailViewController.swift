@@ -39,7 +39,11 @@ class ParcelDetailViewController: UIViewController {
         if self.parcel.parcelIsFree == 1 {
             self.isFreeLabel.text = "Libre"
         } else {
-            self.isFreeLabel.text = "Occupée"
+            WebServiceHandler.sharedInstance.getUserById(WebServiceHandler.allUsersUrl, userId: self.parcel.parcelRefUser!, completionHandler: {(response) -> Void in
+                let dictionary:NSDictionary = response
+                let user:User = User(object: dictionary)
+                self.isFreeLabel.text = "Occupée par \(user.username!)"
+            })
         }
         self.cityLabel.text = ""
         self.associationLabel.text = ""
@@ -62,9 +66,9 @@ class ParcelDetailViewController: UIViewController {
                     self.association = Association(object: dictionary)
                     
                     if self.garden!.gardenRefAssociation == self.association?.associationId {
-                        self.associationLabel.text = self.association?.associationName!
+                        self.associationLabel.text = "Association : \((self.association?.associationName)!)"
                     } else {
-                        self.associationLabel.text = "Mairie de \(self.city?.cityName)"
+                        self.associationLabel.text = "Mairie : \((self.city?.cityName)!)"
                     }
                     
                     // Loader end

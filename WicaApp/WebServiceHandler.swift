@@ -25,6 +25,7 @@ class WebServiceHandler: NSObject {
     
     // Singleton initalization
     static let sharedInstance: WebServiceHandler = WebServiceHandler()
+    var user:User?
     
     // MARK: - GET All Items Methods
     
@@ -270,6 +271,21 @@ class WebServiceHandler: NSObject {
         }
     }
     
+    // Method to add troc
+    func addTroc(url: String, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.POST, "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // Method to add help
+    func addHelp(url: String, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.POST, "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    
     // MARK: - PUT Methods
     
     // Method to update vegetables to a parcel
@@ -283,6 +299,21 @@ class WebServiceHandler: NSObject {
                 }
         }
     }
+    
+    // Method to update & accept help
+    func updateAcceptHelp(url: String, id:Int, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.PUT, "\(url)/\(id)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
+    // Method to update & accept troc
+    func updateAcceptTroc(url: String, id:Int, key: String, parameters: [String: AnyObject]){
+        Alamofire.request(.PUT, "\(url)/\(id)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
+            print(response)
+        }
+    }
+    
     
     // MARK: - DELETE Methods
     

@@ -35,6 +35,7 @@
 		1E7B2FB71CBBA78600DF7657 /* WicaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FB61CBBA78600DF7657 /* WicaAppUITests.swift */; };
 		1E7B2FC71CBBB16D00DF7657 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FC61CBBB16D00DF7657 /* AddUserViewController.swift */; };
 		1E7B2FCA1CBBC8E100DF7657 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FC91CBBC8E100DF7657 /* WebServiceHandler.swift */; };
+		1E998B9D1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */; };
 		1EC90C261CF300D10095DDFB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */; };
 		1EC90C281CF331C00095DDFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC90C271CF331C00095DDFB /* User.swift */; };
 		1EE3FBF51CD771E2009B5BAA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE3FBF41CD771E2009B5BAA /* AccountViewController.swift */; };
@@ -100,6 +101,7 @@
 		1E7B2FB81CBBA78600DF7657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E7B2FC61CBBB16D00DF7657 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		1E7B2FC91CBBC8E100DF7657 /* WebServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
+		1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTrocsAndHelpsViewController.swift; sourceTree = "<group>"; };
 		1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 		1EC90C271CF331C00095DDFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1EE3FBF41CD771E2009B5BAA /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -183,11 +185,11 @@
 		1E6975EB1CC5185A0096E811 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				1EC90C291CF3446E0095DDFB /* Connection */,
-				1E081C531CFD7B1F004D87CC /* WaitList */,
-				1E081C541CFD7B26004D87CC /* Parcel */,
 				1EE3FBF41CD771E2009B5BAA /* AccountViewController.swift */,
 				1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */,
+				1E081C531CFD7B1F004D87CC /* WaitList */,
+				1E081C541CFD7B26004D87CC /* Parcel */,
+				1E998B9B1D00CE9600011AA8 /* Troc/Help */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 		1E7B2FC41CBBA90900DF7657 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1EC90C291CF3446E0095DDFB /* Connection */,
 				1E6975EA1CC518470096E811 /* Garden */,
 				1E6975EB1CC5185A0096E811 /* Account */,
 				1EEDCAE51CFC848700CB8732 /* MarketPlace */,
@@ -290,6 +293,14 @@
 				1E7B2FC91CBBC8E100DF7657 /* WebServiceHandler.swift */,
 			);
 			name = WebService;
+			sourceTree = "<group>";
+		};
+		1E998B9B1D00CE9600011AA8 /* Troc/Help */ = {
+			isa = PBXGroup;
+			children = (
+				1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */,
+			);
+			name = Troc/Help;
 			sourceTree = "<group>";
 		};
 		1EC90C291CF3446E0095DDFB /* Connection */ = {
@@ -529,6 +540,7 @@
 				1E7B2FC71CBBB16D00DF7657 /* AddUserViewController.swift in Sources */,
 				1E081C5A1CFDC0F7004D87CC /* VegetableTableViewCell.swift in Sources */,
 				1E0E17411CE0CFAE0085A044 /* MyWaitListListViewController.swift in Sources */,
+				1E998B9D1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift in Sources */,
 				1EEDCAEC1CFC849900CB8732 /* HelpPlaceDetailsViewController.swift in Sources */,
 				1E081C581CFDB8EB004D87CC /* Parcelhasvegetables.swift in Sources */,
 				1E6975E31CC4C58E0096E811 /* Vegetable.swift in Sources */,

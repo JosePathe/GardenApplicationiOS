@@ -1,5 +1,5 @@
 //
-//  MarketPlaceViewController.swift
+//  MyTrocsAndHelpsViewController.swift
 //  WicaApp
 //
 //  Created by Mathieu Larcher on 23/05/2016.
@@ -8,63 +8,60 @@
 
 import Alamofire
 
-class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    // UI items
-    @IBOutlet weak var tableViewMarket: UITableView!
-    @IBOutlet weak var segmentControlOffreDemande: UISegmentedControl!
-    @IBOutlet weak var addMarketItemButton: UIButton!
+class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Class attributes
+    @IBOutlet weak var tableViewMarket: UITableView!
+    
+    @IBOutlet weak var segmentControlOffreDemande: UISegmentedControl!
+    
     var TrocArray: [Troc]! = [Troc]()
     var HelpArray: [Help]! = [Help]()
+    
     var selectedTroc:Int = 0
     var selectedHelp:Int = 0
+    
+    //var trocArray: [Troc]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Button style
-        self.addMarketItemButton.layer.cornerRadius = 4;
-        
         self.tableViewMarket.dataSource = self
         self.tableViewMarket.delegate = self
         
-        // Appel WS pour tester le module
+        //Appel WS pour tester le module//
         let parameters : [ String : NSString] = [
-            "username": "\(WebServiceHandler.sharedInstance.user?.username!)",
-            "password": "\(WebServiceHandler.sharedInstance.user?.username!)"
+            "username": "\("basicUser")",
+            "password": "\("basicUser")"
         ]
         
         WebServiceHandler.sharedInstance.connectionLogin(WebServiceHandler.loginConnection, parameters: parameters, completionHandler: ({(response) -> Void in
-            print(response)
-                WebServiceHandler.sharedInstance.getAllTrocs({(response) -> Void in
-                    print(response)
-                    let array:NSArray = response
-                    for element in array {
-                        let troc: Troc = Troc(object: element)
-                        if troc.trocUserAccept == nil || troc.trocUserAccept == ""{
-                            print(element)
-                            self.TrocArray.append(troc)
-                        }
+            WebServiceHandler.sharedInstance.getAllTrocs({(response) -> Void in
+                let array:NSArray = response
+                for element in array {
+                    let troc: Troc = Troc(object: element)
+                    if troc.trocUserSell == "4"{
+                        print(element)
+                        self.TrocArray.append(troc)
                     }
-                    self.tableViewMarket.reloadData()
-                })
-                
-                WebServiceHandler.sharedInstance.getAllHelps({(response) -> Void in
-                    let array:NSArray = response
-                    for element in array {
-                        let help: Help = Help(object: element)
-                        if help.helpUserAccept == nil || help.helpUserAccept == ""{
-                            print(element)
-                            self.HelpArray.append(help)
-                        }
+                }
+                self.tableViewMarket.reloadData()
+            })
+            
+            WebServiceHandler.sharedInstance.getAllHelps({(response) -> Void in
+                let array:NSArray = response
+                for element in array {
+                    let help: Help = Help(object: element)
+                    if help.helpUser! == 4{
+                        print(element)
+                        self.HelpArray.append(help)
                     }
-                    self.tableViewMarket.reloadData()
-                })
-            }))
-        }
+                }
+                self.tableViewMarket.reloadData()
+            })
+        }))
+    }
     
-        //////////////////////////////////
+    //////////////////////////////////
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -91,8 +88,8 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MarketCell", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyMarketCell", forIndexPath: indexPath)
+        
         switch(segmentControlOffreDemande.selectedSegmentIndex)
         {
         case 0:
@@ -100,6 +97,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
             cell.textLabel?.text = troc.trocDescription
             break
         case 1:
+            print("lala")
             let help:Help = self.HelpArray[indexPath.row]
             cell.textLabel?.text = help.helpText
             break
@@ -109,22 +107,6 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         return cell
-    }
-    
-    @IBAction func OnClickCreateOffer(sender: AnyObject) {
-        
-        switch(segmentControlOffreDemande.selectedSegmentIndex)
-        {
-        case 0:
-            self.performSegueWithIdentifier("toCreateTroc", sender: self)
-            break
-        case 1:
-            self.performSegueWithIdentifier("toCreateHelp", sender: self)
-            break
-        default:
-            break
-            
-        }
     }
     @IBAction func SegmentChangedIndex(sender: UISegmentedControl) {
         
@@ -147,7 +129,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
             break
             
         }
-
+        
         
     }
     
@@ -158,7 +140,7 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         case 0:
             if segue.identifier == "toTrocDetail"{
                 let marketPlaceDetailsViewController = segue.destinationViewController as! MarketPlaceDetailsViewController
-                    marketPlaceDetailsViewController.troc = self.TrocArray[self.selectedTroc]
+                marketPlaceDetailsViewController.troc = self.TrocArray[self.selectedTroc]
             }
             else{
                 _ = segue.destinationViewController as! MarketPlaceCreateViewController

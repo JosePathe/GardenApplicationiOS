@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class ConnectionViewController: UIViewController{
     // UI items
@@ -15,9 +14,6 @@ class ConnectionViewController: UIViewController{
     @IBOutlet weak var field_password: UITextField!
     @IBOutlet weak var button_connection: UIButton!
     @IBOutlet weak var button_signUp: UIButton!
-    
-    // Class attributes
-    var user:User = User(json: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +42,7 @@ class ConnectionViewController: UIViewController{
                 if  let id = currentUserId {
                     // Get current city
                     WebServiceHandler.sharedInstance.getUserById(WebServiceHandler.allUsersUrl, userId: id, completionHandler: {(response) -> Void in
-                        self.user = User(object: response)
-                        
+                        WebServiceHandler.sharedInstance.user = User(object: response)
                         self.performSegueWithIdentifier("toAccount", sender: self)
                     })
                 } else {
@@ -81,10 +76,6 @@ class ConnectionViewController: UIViewController{
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if "toAccount" == segue.identifier! {
-            let accountViewController = segue.destinationViewController as! AccountViewController
-            accountViewController.user = self.user
-        }
      }
     
 }

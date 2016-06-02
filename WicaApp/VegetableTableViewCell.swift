@@ -21,7 +21,6 @@ class VegetableTableViewCell: UITableViewCell {
     var parcelhasvegetables:Parcelhasvegetables!
     var parcelhasvegetablesId:Int = 0
     var parcelhasvegetablesIndex:Int = 0
-    var authKey = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,7 +49,7 @@ class VegetableTableViewCell: UITableViewCell {
             "parcel_has_vegetable_quantity": "\(downQuantity)"
         ]
         
-        WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: authKey, parameters: parameters, completionHandler: {(response) -> Void in
+        WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters, completionHandler: {(response) -> Void in
                 print(response)
                 self.delegate.updateParcelhasvegetablesAtIndex(self.parcelhasvegetablesIndex, newQuantity: downQuantity)
                 self.delegate.reloadData()
@@ -67,7 +66,7 @@ class VegetableTableViewCell: UITableViewCell {
             "parcel_has_vegetable_quantity": "\(upQuantity)"
         ]
         
-        WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: authKey, parameters: parameters, completionHandler: {(response) -> Void in
+        WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters, completionHandler: {(response) -> Void in
                 print(response)
                 self.delegate.updateParcelhasvegetablesAtIndex(self.parcelhasvegetablesIndex, newQuantity: upQuantity)
                 self.delegate.reloadData()
@@ -75,7 +74,7 @@ class VegetableTableViewCell: UITableViewCell {
     }
     
     @IBAction func onClickDeleteButton(sender: UIButton) {
-        WebServiceHandler.sharedInstance.deleteVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: authKey, completionHandler: {(response) -> Void in
+        WebServiceHandler.sharedInstance.deleteVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: (WebServiceHandler.sharedInstance.user?.authKey)!, completionHandler: {(response) -> Void in
             if response {
                 self.delegate.removeParcelhasvegetablesAtIndex(self.parcelhasvegetablesIndex)
                 self.delegate.reloadData()

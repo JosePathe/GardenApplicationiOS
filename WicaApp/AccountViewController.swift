@@ -13,8 +13,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var accountTableView: UITableView!
     
     // Class attributes
-    var accountMenuList: NSArray = ["Mes listes d'attente", "Ma parcelle", "Mon compte"]
+    var accountMenuList: NSArray = ["Mes listes d'attente", "Ma parcelle", "Mon compte", "Mes trocs & aides"]
     var user:User = User(json: nil)
+    var parcel:Parcel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,28 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         // Remove empty cells
         self.accountTableView.tableFooterView = UIView()//frame: CGRect.zero
         
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier != nil {
+            self.user = WebServiceHandler.sharedInstance.user!
+        }
+        
         // Check if user is connected
         if self.user.internalIdentifier == nil {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
             self.presentViewController(connectionViewController, animated: true, completion: nil)
         }
+        
+        // Webservice call
+        WebServiceHandler.sharedInstance.getAllParcels({(response) -> Void in
+            let array:NSArray = response
+            for element in array {
+                let parcel:Parcel = Parcel(object: element)
+                print(WebServiceHandler.sharedInstance.user?.internalIdentifier!)
+                if (parcel.parcelRefUser != nil) && (WebServiceHandler.sharedInstance.user?.internalIdentifier! == String(parcel.parcelRefUser!)) {
+                    self.parcel = parcel
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,11 +77,15 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         if indexPath.row == 1 {
-            self.performSegueWithIdentifier("toParcelListAccount", sender: self)
+            self.performSegueWithIdentifier("toParcelAccountDetail", sender: self)
         }
         
         if indexPath.row == 2 {
             self.performSegueWithIdentifier("toAccountDetail", sender: self)
+        }
+        
+        if indexPath.row == 2 {
+            self.performSegueWithIdentifier("toAccountTrocAndHelp", sender: self)
         }
     }
 
@@ -77,14 +98,19 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             myWaitListListViewController.user = self.user
         }
         
-        if "toParcelListAccount" == segue.identifier! {
-            let parceListAccountViewController = segue.destinationViewController as! ParcelListAccountViewController
-            parceListAccountViewController.user = self.user
+        if "toParcelAccountDetail" == segue.identifier! {
+            let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
+            parcelAccountDetailViewController.parcel = self.parcel!
+            parcelAccountDetailViewController.user = self.user
         }
         
         if "toAccountDetail" == segue.identifier! {
             let accountDetailViewController = segue.destinationViewController as! AccountDetailViewController
             accountDetailViewController.user = self.user
+        }
+        
+        if "toAccountTrocAndHelp" == segue.identifier! {
+            //let myTrocsAndHelpsViewController = segue.destinationViewController as! MyTrocsAndHelpsViewController
         }
     }
 

@@ -35,7 +35,7 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
         super.viewDidLoad()
         
         // Button style
-        self.buttonAddVegetable.layer.cornerRadius = 4;
+        //self.buttonAddVegetable.layer.cornerRadius = 4;
         
         // Set this ViewController as list datasource and list delegate
         self.vegetablesTableView.dataSource = self
@@ -137,7 +137,6 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
         cell.parcelhasvegetablesId = self.parcelhasvegetablesList[indexPath.row].parcelHasVegetableId!
         cell.parcelhasvegetables = self.parcelhasvegetablesList[indexPath.row]
         cell.parcelhasvegetablesIndex = indexPath.row
-        cell.authKey = self.user.authKey!
         cell.quantityLabel.text = String(self.parcelhasvegetablesList[indexPath.row].parcelHasVegetableQuantity!)
         cell.vegetableNameLabel.text = vegetable.vegetableName!
         

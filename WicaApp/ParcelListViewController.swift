@@ -22,7 +22,7 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         // Button style
-        self.subscribeButton.layer.cornerRadius = 4;
+        //self.subscribeButton.layer.cornerRadius = 4;
 
         // Set this ViewController as list datasource and list delegate
         self.parcelTableView.dataSource = self
@@ -51,12 +51,20 @@ class ParcelListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     @IBAction func onClickSubscribeButton(sender: UIButton) {
-        let parameters : [ String : NSString] = [
-            "wait_list_ref_garden": "\(self.garden.gardenId!)",
-            "wait_list_ref_user": "\(7)"
-        ]
-        
-        WebServiceHandler.sharedInstance.addSubscribe(WebServiceHandler.allWaitLists, key: "hBwVkMMSzaUkwJNhpk3i_yNimjrtyH5R", parameters: parameters)
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let alert = UIAlertController(title: "Erreur", message: "Vous devez être connecté pour vous inscrire", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            let parameters : [ String : NSString] = [
+                "wait_list_ref_garden": "\(self.garden.gardenId!)",
+                "wait_list_ref_user": "\(7)"
+            ]
+            
+            WebServiceHandler.sharedInstance.addSubscribe(WebServiceHandler.allWaitLists, key: "hBwVkMMSzaUkwJNhpk3i_yNimjrtyH5R", parameters: parameters)
+        }
     }
     
     // MARK: - TableView Datasource Methods
