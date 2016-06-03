@@ -15,7 +15,6 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var addButton: UIButton!
     
     // Class attributes
-    var user:User = User(json: nil)
     var parcel:Parcel = Parcel(json: nil)
     var parcelhasvegetables:Parcelhasvegetables?
     var vegetableList: NSMutableArray = []
@@ -31,6 +30,13 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
         // Set this ViewController as picker datasource and picker delegate
         self.vegetablePickerView.dataSource = self
         self.vegetablePickerView.delegate = self
+        
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
         
         // Webservice call
         WebServiceHandler.sharedInstance.getAllVegetables({(response) -> Void in
@@ -76,17 +82,13 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
         if checkFields() {
             let vegetable:Vegetable = self.vegetableList[self.selectedVegetable] as! Vegetable
             
-            print(self.parcel.parcelId!)
-            print(vegetable.vegetableId!)
-            print(self.quantity)
-            
             let parameters = [
                 "parcel_has_vegetable_parcel": "\(self.parcel.parcelId!)",
                 "parcel_has_vegetable_vegetable": "\(vegetable.vegetableId!)",
                 "parcel_has_vegetable_quantity": "\(self.quantity)"
             ]
             
-            WebServiceHandler.sharedInstance.addVegetablesToParcel(WebServiceHandler.allParcelHasVegetables, key: user.authKey!, parameters: parameters, completionHandler: {(response) -> Void in
+            WebServiceHandler.sharedInstance.addVegetablesToParcel(WebServiceHandler.allParcelHasVegetables, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters, completionHandler: {(response) -> Void in
                 let dictionary:NSDictionary = response
                 let currentParcelhasvegetables = Parcelhasvegetables(object: dictionary)
                 let currentParcelhasvegetablesId:Int = currentParcelhasvegetables.parcelHasVegetableId!
@@ -143,6 +145,5 @@ class AddVegetableViewController: UIViewController, UIPickerViewDataSource, UIPi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
         parcelAccountDetailViewController.parcel = self.parcel
-        parcelAccountDetailViewController.user = self.user
     }
 }

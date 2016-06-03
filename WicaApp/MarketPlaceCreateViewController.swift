@@ -42,6 +42,13 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
         self.pickerView2.dataSource = self
         self.pickerView2.delegate = self
         
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
+        
         let parameters : [ String : NSString] = [
             "username": "\("basicUser")",
             "password": "\("basicUser")"
@@ -52,7 +59,7 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
                 let array:NSArray = response
                 for element in array {
                     let parcel: Parcel = Parcel(object: element)
-                    if parcel.parcelRefUser == 6{
+                    if parcel.parcelRefUser! == Int((WebServiceHandler.sharedInstance.user?.internalIdentifier)!){
                         
                         self.parcelObject.parcelId = parcel.parcelId
                         self.parcelObject.parcelRefGarden = parcel.parcelRefGarden
@@ -63,7 +70,6 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
                     for element in array {
                         let parcelHasVegetables: Parcelhasvegetables = Parcelhasvegetables(object: element)
                         if parcelHasVegetables.parcelHasVegetableParcel == self.parcelObject.parcelId{
-                            print(element)
                             self.ParcelHasVegetablesArray.append(parcelHasVegetables)
                         }
                     }
@@ -73,7 +79,6 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
                             for element in array {
                                 let vegetables: Vegetable = Vegetable(object: element)
                                 if self.already == false{
-                                    print(element)
                                     self.AllVegetablesArray.append(vegetables)
                                 }
                                 if vegetables.vegetableId ==  id.parcelHasVegetableVegetable!{
@@ -145,7 +150,7 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
             let vegetableSell:Vegetable = self.AllVegetablesArray[self.selectedVegetable]
             
             let parameters = [
-                "troc_user_sell": "\("4")",
+                "troc_user_sell": "\(WebServiceHandler.sharedInstance.user?.internalIdentifier!)",
                 "troc_description": "\(self.titleTxtField.text!)",
                 "troc_user_accept": 0,
                 "troc_ref_vegetable_offer": "\(vegetableOffer.vegetableId!)",
@@ -155,9 +160,7 @@ class MarketPlaceCreateViewController: UIViewController, UIPickerViewDataSource,
                 "garden_id": "\(self.parcelObject.parcelRefGarden!)"
             ]
             
-            print("parameters = ", parameters)
-            
-            WebServiceHandler.sharedInstance.addTroc(WebServiceHandler.allTrocsUrl, key: "nAo86Q_Lt7om3DWBxe1XvDJX6iqJvSL4", parameters: parameters as! [String : AnyObject])
+            WebServiceHandler.sharedInstance.addTroc(WebServiceHandler.allTrocsUrl, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters as! [String : AnyObject])
         }
     }
     

@@ -13,8 +13,7 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var accountTableView: UITableView!
     
     // Class attributes
-    var accountMenuList: NSArray = ["Mes listes d'attente", "Ma parcelle", "Mon compte", "Mes trocs & aides"]
-    var user:User = User(json: nil)
+    var accountMenuList: NSArray = ["Mes listes d'attente", "Ma parcelle", "Mes trocs & aides"]
     var parcel:Parcel?
 
     override func viewDidLoad() {
@@ -27,12 +26,8 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
         // Remove empty cells
         self.accountTableView.tableFooterView = UIView()//frame: CGRect.zero
         
-        if WebServiceHandler.sharedInstance.user?.internalIdentifier != nil {
-            self.user = WebServiceHandler.sharedInstance.user!
-        }
-        
         // Check if user is connected
-        if self.user.internalIdentifier == nil {
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
             self.presentViewController(connectionViewController, animated: true, completion: nil)
@@ -43,7 +38,6 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             let array:NSArray = response
             for element in array {
                 let parcel:Parcel = Parcel(object: element)
-                print(WebServiceHandler.sharedInstance.user?.internalIdentifier!)
                 if (parcel.parcelRefUser != nil) && (WebServiceHandler.sharedInstance.user?.internalIdentifier! == String(parcel.parcelRefUser!)) {
                     self.parcel = parcel
                 }
@@ -80,9 +74,9 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             self.performSegueWithIdentifier("toParcelAccountDetail", sender: self)
         }
         
-        if indexPath.row == 2 {
+        /*if indexPath.row == 2 {
             self.performSegueWithIdentifier("toAccountDetail", sender: self)
-        }
+        }*/
         
         if indexPath.row == 2 {
             self.performSegueWithIdentifier("toAccountTrocAndHelp", sender: self)
@@ -94,20 +88,20 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if "toWaitlistListAccount" == segue.identifier! {
-            let myWaitListListViewController = segue.destinationViewController as! MyWaitListListViewController
-            myWaitListListViewController.user = self.user
+            //let myWaitListListViewController = segue.destinationViewController as! MyWaitListListViewController
+            //myWaitListListViewController.user = self.user
         }
         
         if "toParcelAccountDetail" == segue.identifier! {
             let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
             parcelAccountDetailViewController.parcel = self.parcel!
-            parcelAccountDetailViewController.user = self.user
+            //parcelAccountDetailViewController.user = self.user
         }
         
-        if "toAccountDetail" == segue.identifier! {
-            let accountDetailViewController = segue.destinationViewController as! AccountDetailViewController
-            accountDetailViewController.user = self.user
-        }
+        /*if "toAccountDetail" == segue.identifier! {
+            //let accountDetailViewController = segue.destinationViewController as! AccountDetailViewController
+            //accountDetailViewController.user = self.user
+        }*/
         
         if "toAccountTrocAndHelp" == segue.identifier! {
             //let myTrocsAndHelpsViewController = segue.destinationViewController as! MyTrocsAndHelpsViewController

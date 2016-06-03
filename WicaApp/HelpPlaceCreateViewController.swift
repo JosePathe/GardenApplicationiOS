@@ -17,6 +17,13 @@ class HelpPlaceCreateViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
+        
         let parameters : [ String : NSString] = [
             "username": "\("basicUser")",
             "password": "\("basicUser")"
@@ -36,15 +43,13 @@ class HelpPlaceCreateViewController: UIViewController{
         if checkFields() {if checkFields() {
             
             let parameters = [
-                "help_user": "\("4")",
+                "help_user": "\(WebServiceHandler.sharedInstance.user?.internalIdentifier!)",
                 "help_title": "\(titleTxtField.text!)",
                 "help_user_accept": "\("")",
                 "help_text": "\(descTxtField.text!)",
                 ]
             
-            print("parameters = ", parameters)
-            
-            WebServiceHandler.sharedInstance.addHelp(WebServiceHandler.allHelpsUrl, key: "nAo86Q_Lt7om3DWBxe1XvDJX6iqJvSL4", parameters: parameters )
+            WebServiceHandler.sharedInstance.addHelp(WebServiceHandler.allHelpsUrl, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters )
             }
         }
         

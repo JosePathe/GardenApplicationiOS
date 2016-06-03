@@ -14,7 +14,6 @@ class MyWaitListListViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var MyWaitListTableView: UITableView!
     
     // Class attributes
-    var user:User = User(json: nil)
     var waitListArray: [Waitlist]! = [Waitlist]()
     var gardenArray: [Garden]! = [Garden]()
     
@@ -23,12 +22,20 @@ class MyWaitListListViewController: UIViewController, UITableViewDataSource {
         
         self.MyWaitListTableView.dataSource = self
         
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
+        
         WebServiceHandler.sharedInstance.getAllWaitList({(response) -> Void in
             let array:NSArray = response
+            
             for element in array {
                 let waitlist: Waitlist = Waitlist(object: element)
                 if let unwrapping: Int = waitlist.waitListRefUser{
-                    if unwrapping == Int(self.user.internalIdentifier!) {
+                    if unwrapping == Int((WebServiceHandler.sharedInstance.user?.internalIdentifier)!) {
                         self.waitListArray.append(waitlist)
                     }
                 }
@@ -45,6 +52,13 @@ class MyWaitListListViewController: UIViewController, UITableViewDataSource {
                             }
                         }
                     }
+                }
+                if self.waitListArray.count == 0 {
+                    let fakeWaitList:Waitlist = Waitlist(json: nil)
+                    self.waitListArray.append(fakeWaitList)
+                    let fakeGarden:Garden = Garden(json: nil)
+                    fakeGarden.gardenAddress = "Inscrit(e) sur aucune liste d'attente"
+                    self.gardenArray.append(fakeGarden)
                 }
                 self.MyWaitListTableView.reloadData()
             })
@@ -65,7 +79,7 @@ class MyWaitListListViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyWaitListCell", forIndexPath: indexPath)
         
-        let garden:Garden = self.gardenArray[indexPath.row] 
+        let garden:Garden = self.gardenArray[indexPath.row]
         
         cell.textLabel?.text = garden.gardenAddress
         

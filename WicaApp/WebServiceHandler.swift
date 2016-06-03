@@ -245,9 +245,15 @@ class WebServiceHandler: NSObject {
     }
     
     // Method to subcribe in garden
-    func addSubscribe(url: String, key: String, parameters: [String: AnyObject]){
+    func addSubscribe(url: String, key: String, parameters: [String: AnyObject], completionHandler : ((response: NSDictionary) -> Void)){
         Alamofire.request(.POST,  "\(url)?key=\(key)", parameters: parameters, encoding: .JSON).responseJSON { response in
-            print(response)
+            
+            if let JSON = response.result.value {
+                return completionHandler(response: JSON as! NSDictionary)
+            } else {
+                return completionHandler(response: [:])
+            }
+            
         }
     }
     

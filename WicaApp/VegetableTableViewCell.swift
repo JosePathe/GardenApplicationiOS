@@ -50,7 +50,6 @@ class VegetableTableViewCell: UITableViewCell {
         ]
         
         WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters, completionHandler: {(response) -> Void in
-                print(response)
                 self.delegate.updateParcelhasvegetablesAtIndex(self.parcelhasvegetablesIndex, newQuantity: downQuantity)
                 self.delegate.reloadData()
         })
@@ -67,7 +66,6 @@ class VegetableTableViewCell: UITableViewCell {
         ]
         
         WebServiceHandler.sharedInstance.updateVegetablesFromParcel(WebServiceHandler.allParcelHasVegetables, id: parcelhasvegetablesId, key: (WebServiceHandler.sharedInstance.user?.authKey)!, parameters: parameters, completionHandler: {(response) -> Void in
-                print(response)
                 self.delegate.updateParcelhasvegetablesAtIndex(self.parcelhasvegetablesIndex, newQuantity: upQuantity)
                 self.delegate.reloadData()
         })

@@ -1,23 +1,21 @@
 //
-//  MarketPlaceDetailsViewController.swift
+//  TrocAccountDetailViewController.swift
 //  WicaApp
 //
-//  Created by Mathieu Larcher on 23/05/2016.
+//  Created by Johann Berthet on 03/06/2016.
 //  Copyright © 2016 Johann Berthet. All rights reserved.
 //
 
-import Alamofire
+import UIKit
 
-class MarketPlaceDetailsViewController: UIViewController{
-    
-    // UI items
+class TrocAccountDetailViewController: UIViewController {
     @IBOutlet weak var pseudoLabel: UILabel!
+    
     @IBOutlet weak var quantitySellLabel: UILabel!
     @IBOutlet weak var vegetableSellLabel: UILabel!
     @IBOutlet weak var quantityOfferLabel: UILabel!
     @IBOutlet weak var vegetableOfferLabel: UILabel!
-    @IBOutlet weak var acceptButton: UIButton!
-    
+
     // Class attrivutes
     var UserArray: [User]! = [User]()
     var VegetableOfferArray: [Vegetable]! = [Vegetable]()
@@ -26,9 +24,6 @@ class MarketPlaceDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Button style
-        self.acceptButton.layer.cornerRadius = 4;
         
         // Check if user is connected
         if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
@@ -65,21 +60,9 @@ class MarketPlaceDetailsViewController: UIViewController{
         
     }
     
-    @IBAction func buttonAccept(sender: UIButton) {
-        let parameters = [
-            "troc_user_accept": "\(self.user.internalIdentifier!)"
-        ]
-        
-        WebServiceHandler.sharedInstance.updateAcceptTroc(WebServiceHandler.allTrocsUrl, id: Int(troc.trocId!)!, key: self.user.authKey!, parameters: parameters)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      let gardenListViewController = segue.destinationViewController as! GardenListViewController
      
      }*/
-    
+
 }

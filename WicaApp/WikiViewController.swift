@@ -1,24 +1,20 @@
 //
-//  AccountDetailViewController.swift
+//  WikiViewController.swift
 //  WicaApp
 //
-//  Created by Johann Berthet on 23/05/2016.
+//  Created by Johann Berthet on 03/06/2016.
 //  Copyright © 2016 Johann Berthet. All rights reserved.
 //
 
 import UIKit
 
-class AccountDetailViewController: UIViewController {
+class WikiViewController: UIViewController {
+    @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Check if user is connected
-        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
-            self.presentViewController(connectionViewController, animated: true, completion: nil)
-        }
+        webView.loadRequest(NSURLRequest(URL: NSURL(string: "http://wica.esy.es/advanced/backend/web/index.php/tips/list")!))
     }
 
     override func didReceiveMemoryWarning() {

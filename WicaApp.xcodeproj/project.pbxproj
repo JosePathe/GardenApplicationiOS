@@ -13,7 +13,6 @@
 		1E0E173C1CE0797B0085A044 /* ParcelListAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */; };
 		1E0E17401CE0CFAE0085A044 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173D1CE0CFAE0085A044 /* ConnectionViewController.swift */; };
 		1E0E17411CE0CFAE0085A044 /* MyWaitListListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */; };
-		1E1A73621CBD80AD007ECEEB /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1A73611CBD80AD007ECEEB /* Garden.swift */; };
 		1E1A73681CBD8A51007ECEEB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1A73671CBD8A51007ECEEB /* MapKit.framework */; };
 		1E3737BB1CBFAF600097ADC1 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3737BA1CBFAF600097ADC1 /* City.swift */; };
 		1E3B3AA11CBD770A00A69CDD /* CityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */; };
@@ -35,6 +34,14 @@
 		1E7B2FB71CBBA78600DF7657 /* WicaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FB61CBBA78600DF7657 /* WicaAppUITests.swift */; };
 		1E7B2FC71CBBB16D00DF7657 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FC61CBBB16D00DF7657 /* AddUserViewController.swift */; };
 		1E7B2FCA1CBBC8E100DF7657 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7B2FC91CBBC8E100DF7657 /* WebServiceHandler.swift */; };
+		1E9343941D019DB300A5E26F /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9343931D019DB300A5E26F /* WikiViewController.swift */; };
+		1E9343961D01E9D700A5E26F /* TrocAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9343951D01E9D700A5E26F /* TrocAccountDetailViewController.swift */; };
+		1E9343981D01E9E500A5E26F /* HelpAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9343971D01E9E500A5E26F /* HelpAccountDetailViewController.swift */; };
+		1E93439A1D020D1C00A5E26F /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9343991D020D1C00A5E26F /* Garden.swift */; };
+		1E93439D1D022FDA00A5E26F /* carrot.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E93439C1D022FDA00A5E26F /* carrot.png */; };
+		1E93439F1D022FE200A5E26F /* plant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E93439E1D022FE200A5E26F /* plant.png */; };
+		1E9343A11D022FE700A5E26F /* watering-can.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9343A01D022FE700A5E26F /* watering-can.png */; };
+		1E9343A31D022FEB00A5E26F /* shovel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9343A21D022FEB00A5E26F /* shovel.png */; };
 		1E998B9D1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */; };
 		1EC90C261CF300D10095DDFB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */; };
 		1EC90C281CF331C00095DDFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC90C271CF331C00095DDFB /* User.swift */; };
@@ -73,7 +80,6 @@
 		1E0E173B1CE0797B0085A044 /* ParcelListAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelListAccountViewController.swift; sourceTree = "<group>"; };
 		1E0E173D1CE0CFAE0085A044 /* ConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		1E0E173E1CE0CFAE0085A044 /* MyWaitListListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWaitListListViewController.swift; sourceTree = "<group>"; };
-		1E1A73611CBD80AD007ECEEB /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
 		1E1A73671CBD8A51007ECEEB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1E3737BA1CBFAF600097ADC1 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		1E3B3AA01CBD770A00A69CDD /* CityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityMapViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,14 @@
 		1E7B2FB81CBBA78600DF7657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E7B2FC61CBBB16D00DF7657 /* AddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		1E7B2FC91CBBC8E100DF7657 /* WebServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
+		1E9343931D019DB300A5E26F /* WikiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		1E9343951D01E9D700A5E26F /* TrocAccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrocAccountDetailViewController.swift; sourceTree = "<group>"; };
+		1E9343971D01E9E500A5E26F /* HelpAccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAccountDetailViewController.swift; sourceTree = "<group>"; };
+		1E9343991D020D1C00A5E26F /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
+		1E93439C1D022FDA00A5E26F /* carrot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carrot.png; path = ../../../../../Desktop/carrot.png; sourceTree = "<group>"; };
+		1E93439E1D022FE200A5E26F /* plant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plant.png; path = ../../../../../Desktop/plant.png; sourceTree = "<group>"; };
+		1E9343A01D022FE700A5E26F /* watering-can.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "watering-can.png"; path = "../../../../../Desktop/watering-can.png"; sourceTree = "<group>"; };
+		1E9343A21D022FEB00A5E26F /* shovel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shovel.png; path = ../../../../../Desktop/shovel.png; sourceTree = "<group>"; };
 		1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTrocsAndHelpsViewController.swift; sourceTree = "<group>"; };
 		1EC90C251CF300D10095DDFB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 		1EC90C271CF331C00095DDFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -197,6 +211,7 @@
 		1E6975EC1CC518780096E811 /* Wiki */ = {
 			isa = PBXGroup;
 			children = (
+				1E9343931D019DB300A5E26F /* WikiViewController.swift */,
 			);
 			name = Wiki;
 			sourceTree = "<group>";
@@ -226,6 +241,7 @@
 		1E7B2F951CBBA78500DF7657 /* WicaApp */ = {
 			isa = PBXGroup;
 			children = (
+				1E93439B1D022FC400A5E26F /* Images */,
 				1E6975E71CC4FF920096E811 /* UI Custom Items */,
 				1E7B2FC81CBBC8B600DF7657 /* WebService */,
 				1E7B2FC51CBBA91400DF7657 /* Models */,
@@ -272,8 +288,8 @@
 		1E7B2FC51CBBA91400DF7657 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1E9343991D020D1C00A5E26F /* Garden.swift */,
 				1E6975EF1CC51F650096E811 /* MapAnnotation.swift */,
-				1E1A73611CBD80AD007ECEEB /* Garden.swift */,
 				1E081C571CFDB8EB004D87CC /* Parcelhasvegetables.swift */,
 				1E3737BA1CBFAF600097ADC1 /* City.swift */,
 				1E6975DB1CC4C58E0096E811 /* Association.swift */,
@@ -295,10 +311,23 @@
 			name = WebService;
 			sourceTree = "<group>";
 		};
+		1E93439B1D022FC400A5E26F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1E93439C1D022FDA00A5E26F /* carrot.png */,
+				1E9343A21D022FEB00A5E26F /* shovel.png */,
+				1E9343A01D022FE700A5E26F /* watering-can.png */,
+				1E93439E1D022FE200A5E26F /* plant.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1E998B9B1D00CE9600011AA8 /* Troc/Help */ = {
 			isa = PBXGroup;
 			children = (
 				1E998B9C1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift */,
+				1E9343951D01E9D700A5E26F /* TrocAccountDetailViewController.swift */,
+				1E9343971D01E9E500A5E26F /* HelpAccountDetailViewController.swift */,
 			);
 			name = Troc/Help;
 			sourceTree = "<group>";
@@ -454,7 +483,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E93439D1D022FDA00A5E26F /* carrot.png in Resources */,
+				1E9343A11D022FE700A5E26F /* watering-can.png in Resources */,
+				1E9343A31D022FEB00A5E26F /* shovel.png in Resources */,
 				1E7B2FA11CBBA78600DF7657 /* LaunchScreen.storyboard in Resources */,
+				1E93439F1D022FE200A5E26F /* plant.png in Resources */,
 				1E7B2F9E1CBBA78600DF7657 /* Assets.xcassets in Resources */,
 				1E7B2F9C1CBBA78600DF7657 /* Main.storyboard in Resources */,
 			);
@@ -530,9 +563,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EEDCAF21CFC888F00CB8732 /* Help.swift in Sources */,
-				1E1A73621CBD80AD007ECEEB /* Garden.swift in Sources */,
 				1E3B3AA11CBD770A00A69CDD /* CityMapViewController.swift in Sources */,
 				1E6975EE1CC51ABB0096E811 /* AddVegetableViewController.swift in Sources */,
+				1E9343941D019DB300A5E26F /* WikiViewController.swift in Sources */,
 				1EC90C261CF300D10095DDFB /* AccountDetailViewController.swift in Sources */,
 				1E7B2F971CBBA78500DF7657 /* AppDelegate.swift in Sources */,
 				1E7B2FCA1CBBC8E100DF7657 /* WebServiceHandler.swift in Sources */,
@@ -541,6 +574,7 @@
 				1E081C5A1CFDC0F7004D87CC /* VegetableTableViewCell.swift in Sources */,
 				1E0E17411CE0CFAE0085A044 /* MyWaitListListViewController.swift in Sources */,
 				1E998B9D1D00CF7300011AA8 /* MyTrocsAndHelpsViewController.swift in Sources */,
+				1E93439A1D020D1C00A5E26F /* Garden.swift in Sources */,
 				1EEDCAEC1CFC849900CB8732 /* HelpPlaceDetailsViewController.swift in Sources */,
 				1E081C581CFDB8EB004D87CC /* Parcelhasvegetables.swift in Sources */,
 				1E6975E31CC4C58E0096E811 /* Vegetable.swift in Sources */,
@@ -555,10 +589,12 @@
 				1E6975F01CC51F650096E811 /* MapAnnotation.swift in Sources */,
 				1E6975E61CC4CD520096E811 /* ParcelDetailViewController.swift in Sources */,
 				1E6975E01CC4C58E0096E811 /* Association.swift in Sources */,
+				1E9343961D01E9D700A5E26F /* TrocAccountDetailViewController.swift in Sources */,
 				1E6975E11CC4C58E0096E811 /* Parcel.swift in Sources */,
 				1EC90C281CF331C00095DDFB /* User.swift in Sources */,
 				1E6975E91CC500050096E811 /* ParcelTableViewCell.swift in Sources */,
 				1E6975DA1CC4C11F0096E811 /* ParcelListViewController.swift in Sources */,
+				1E9343981D01E9E500A5E26F /* HelpAccountDetailViewController.swift in Sources */,
 				1EEDCAEF1CFC849900CB8732 /* MarketPlaceViewController.swift in Sources */,
 				1EEDCAEB1CFC849900CB8732 /* HelpPlaceCreateViewController.swift in Sources */,
 				1EEDCAF31CFC888F00CB8732 /* Troc.swift in Sources */,

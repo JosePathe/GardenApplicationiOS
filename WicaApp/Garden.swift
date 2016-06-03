@@ -1,7 +1,7 @@
 //
 //  Garden.swift
 //
-//  Created by Johann Berthet on 12/04/2016
+//  Created by Johann Berthet on 03/06/2016
 //  Copyright (c) . All rights reserved.
 //
 
@@ -16,6 +16,7 @@ public class Garden: NSObject {
 	internal let kGardenGardenTotalPlacesKey: String = "garden_total_places"
 	internal let kGardenGardenIdKey: String = "garden_id"
 	internal let kGardenGardenSurfaceKey: String = "garden_surface"
+	internal let kGardenGardenPictureKey: String = "garden_picture"
 	internal let kGardenGardenDateUpdateKey: String = "garden_date_update"
 	internal let kGardenGardenLatitudeKey: String = "garden_latitude"
 	internal let kGardenGardenRefCityKey: String = "garden_ref_city"
@@ -29,6 +30,7 @@ public class Garden: NSObject {
 	public var gardenTotalPlaces: Int?
 	public var gardenId: Int?
 	public var gardenSurface: String?
+	public var gardenPicture: String?
 	public var gardenDateUpdate: String?
 	public var gardenLatitude: String?
 	public var gardenRefCity: Int?
@@ -57,6 +59,7 @@ public class Garden: NSObject {
 		gardenTotalPlaces = json[kGardenGardenTotalPlacesKey].int
 		gardenId = json[kGardenGardenIdKey].int
 		gardenSurface = json[kGardenGardenSurfaceKey].string
+		gardenPicture = json[kGardenGardenPictureKey].string
 		gardenDateUpdate = json[kGardenGardenDateUpdateKey].string
 		gardenLatitude = json[kGardenGardenLatitudeKey].string
 		gardenRefCity = json[kGardenGardenRefCityKey].int
@@ -87,6 +90,9 @@ public class Garden: NSObject {
 		if gardenSurface != nil {
 			dictionary.updateValue(gardenSurface!, forKey: kGardenGardenSurfaceKey)
 		}
+		if gardenPicture != nil {
+			dictionary.updateValue(gardenPicture!, forKey: kGardenGardenPictureKey)
+		}
 		if gardenDateUpdate != nil {
 			dictionary.updateValue(gardenDateUpdate!, forKey: kGardenGardenDateUpdateKey)
 		}
@@ -113,6 +119,7 @@ public class Garden: NSObject {
 		self.gardenTotalPlaces = aDecoder.decodeObjectForKey(kGardenGardenTotalPlacesKey) as? Int
 		self.gardenId = aDecoder.decodeObjectForKey(kGardenGardenIdKey) as? Int
 		self.gardenSurface = aDecoder.decodeObjectForKey(kGardenGardenSurfaceKey) as? String
+		self.gardenPicture = aDecoder.decodeObjectForKey(kGardenGardenPictureKey) as? String
 		self.gardenDateUpdate = aDecoder.decodeObjectForKey(kGardenGardenDateUpdateKey) as? String
 		self.gardenLatitude = aDecoder.decodeObjectForKey(kGardenGardenLatitudeKey) as? String
 		self.gardenRefCity = aDecoder.decodeObjectForKey(kGardenGardenRefCityKey) as? Int
@@ -127,6 +134,7 @@ public class Garden: NSObject {
 		aCoder.encodeObject(gardenTotalPlaces, forKey: kGardenGardenTotalPlacesKey)
 		aCoder.encodeObject(gardenId, forKey: kGardenGardenIdKey)
 		aCoder.encodeObject(gardenSurface, forKey: kGardenGardenSurfaceKey)
+		aCoder.encodeObject(gardenPicture, forKey: kGardenGardenPictureKey)
 		aCoder.encodeObject(gardenDateUpdate, forKey: kGardenGardenDateUpdateKey)
 		aCoder.encodeObject(gardenLatitude, forKey: kGardenGardenLatitudeKey)
 		aCoder.encodeObject(gardenRefCity, forKey: kGardenGardenRefCityKey)

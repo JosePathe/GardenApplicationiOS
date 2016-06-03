@@ -21,6 +21,7 @@ class AddUserViewController: UIViewController {
     @IBOutlet weak var field_name: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
+    @IBOutlet weak var backButoon: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class AddUserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     // MARK: - Click listeners
     
@@ -68,6 +70,14 @@ class AddUserViewController: UIViewController {
         }
     }
     
+    @IBAction func onClickBackButton(sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+         let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+         self.presentViewController(connectionViewController, animated: true, completion: nil)
+    }
+    
+
+ 
     /*
     // MARK: - Navigation
 

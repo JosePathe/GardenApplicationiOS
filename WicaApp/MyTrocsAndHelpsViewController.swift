@@ -9,18 +9,15 @@
 import Alamofire
 
 class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+    // UI items
     @IBOutlet weak var tableViewMarket: UITableView!
-    
     @IBOutlet weak var segmentControlOffreDemande: UISegmentedControl!
     
+    // Class attributes
     var TrocArray: [Troc]! = [Troc]()
     var HelpArray: [Help]! = [Help]()
-    
     var selectedTroc:Int = 0
     var selectedHelp:Int = 0
-    
-    //var trocArray: [Troc]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +25,17 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
         self.tableViewMarket.dataSource = self
         self.tableViewMarket.delegate = self
         
-        //Appel WS pour tester le module//
-        let parameters : [ String : NSString] = [
-            "username": "\("basicUser")",
-            "password": "\("basicUser")"
-        ]
-        
-        WebServiceHandler.sharedInstance.connectionLogin(WebServiceHandler.loginConnection, parameters: parameters, completionHandler: ({(response) -> Void in
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        } else {
             WebServiceHandler.sharedInstance.getAllTrocs({(response) -> Void in
                 let array:NSArray = response
                 for element in array {
                     let troc: Troc = Troc(object: element)
-                    if troc.trocUserSell == "4"{
-                        print(element)
+                    if troc.trocUserSell == "\((WebServiceHandler.sharedInstance.user?.internalIdentifier)!)"{
                         self.TrocArray.append(troc)
                     }
                 }
@@ -51,21 +46,21 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
                 let array:NSArray = response
                 for element in array {
                     let help: Help = Help(object: element)
-                    if help.helpUser! == 4{
-                        print(element)
+                    if help.helpUser! == Int((WebServiceHandler.sharedInstance.user?.internalIdentifier)!){
                         self.HelpArray.append(help)
                     }
                 }
                 self.tableViewMarket.reloadData()
             })
-        }))
+        }
     }
-    
-    //////////////////////////////////
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    // MARK: - TableView Datasource Methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -97,7 +92,6 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
             cell.textLabel?.text = troc.trocDescription
             break
         case 1:
-            print("lala")
             let help:Help = self.HelpArray[indexPath.row]
             cell.textLabel?.text = help.helpText
             break
@@ -108,10 +102,9 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
         
         return cell
     }
-    @IBAction func SegmentChangedIndex(sender: UISegmentedControl) {
-        
-        self.tableViewMarket.reloadData()
-    }
+    
+    
+    // MARK: - TableView Delegate Methods
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -129,8 +122,14 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
             break
             
         }
+    }
+    
+    
+    // MARK: - Segment index method
+    
+    @IBAction func SegmentChangedIndex(sender: UISegmentedControl) {
         
-        
+        self.tableViewMarket.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -139,20 +138,20 @@ class MyTrocsAndHelpsViewController: UIViewController, UITableViewDataSource, UI
         {
         case 0:
             if segue.identifier == "toTrocDetail"{
-                let marketPlaceDetailsViewController = segue.destinationViewController as! MarketPlaceDetailsViewController
-                marketPlaceDetailsViewController.troc = self.TrocArray[self.selectedTroc]
+                let trocAccountDetailViewController = segue.destinationViewController as! TrocAccountDetailViewController
+                trocAccountDetailViewController.troc = self.TrocArray[self.selectedTroc]
             }
             else{
-                _ = segue.destinationViewController as! MarketPlaceCreateViewController
+                _ = segue.destinationViewController as! TrocAccountDetailViewController
             }
             break
         case 1:
             if segue.identifier == "toHelpDetail"{
-                let helpPlaceDetailsViewController = segue.destinationViewController as! HelpPlaceDetailsViewController
-                helpPlaceDetailsViewController.help = self.HelpArray[self.selectedHelp]
+                let helpAccountDetailViewController = segue.destinationViewController as! HelpAccountDetailViewController
+                helpAccountDetailViewController.help = self.HelpArray[self.selectedHelp]
             }
             else{
-                _=segue.destinationViewController as! HelpPlaceCreateViewController
+                _=segue.destinationViewController as! HelpAccountDetailViewController
             }
             break
         default:

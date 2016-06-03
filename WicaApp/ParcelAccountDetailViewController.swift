@@ -18,7 +18,6 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var vegetablesTableView: UITableView!
     
     // Class attributes
-    var user:User = User(json: nil)
     var parcel:Parcel = Parcel(json: nil)
     var garden:Garden?
     var city:City?
@@ -34,12 +33,16 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Button style
-        //self.buttonAddVegetable.layer.cornerRadius = 4;
-        
         // Set this ViewController as list datasource and list delegate
         self.vegetablesTableView.dataSource = self
         self.vegetablesTableView.delegate = self
+        
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
         
         // Loader and overlay init
         self.initLoading()
@@ -68,9 +71,9 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
                     self.association = Association(object: dictionary)
                     
                     if self.garden!.gardenRefAssociation == self.association?.associationId {
-                        self.associationLabel.text = self.association?.associationName!
+                        self.associationLabel.text = "Association : \(self.association?.associationName!)"
                     } else {
-                        self.associationLabel.text = "Mairie de \(self.city?.cityName)"
+                        self.associationLabel.text = "Mairie : \(self.city?.cityName)"
                     }
                     
                     // Loader end
@@ -147,7 +150,6 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedVegetable = indexPath.row
-        //self.performSegueWithIdentifier("toAddVegetable", sender: self)
     }
 
     // MARK: - Navigation
@@ -156,7 +158,6 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let addVegetableViewController = segue.destinationViewController as! AddVegetableViewController
         addVegetableViewController.parcel = self.parcel
-        addVegetableViewController.user = self.user
     }
     
     func initLoading() -> Void {
@@ -175,6 +176,7 @@ class ParcelAccountDetailViewController: UIViewController, UITableViewDataSource
     }
     
     // MARK: - Protocol method
+    
     func callSegueFromCell(segueId: String) {
         self.performSegueWithIdentifier(segueId, sender: self)
     }

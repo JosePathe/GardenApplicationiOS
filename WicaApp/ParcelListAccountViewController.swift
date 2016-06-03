@@ -13,7 +13,6 @@ class ParcelListAccountViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var parcelTableView: UITableView!
     
     // Class attributes
-    var user:User = User(json: nil)
     var parcelList:NSMutableArray = []
     var selectedParcel:Int = 0
 
@@ -24,12 +23,19 @@ class ParcelListAccountViewController: UIViewController, UITableViewDataSource, 
         self.parcelTableView.dataSource = self
         self.parcelTableView.delegate = self
         
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        }
+        
         // Webservice call
         WebServiceHandler.sharedInstance.getAllParcels({(response) -> Void in
             let array:NSArray = response
             for element in array {
                 let parcel:Parcel = Parcel(object: element)
-                if (parcel.parcelRefUser != nil) && (self.user.internalIdentifier! == String(parcel.parcelRefUser!)) {
+                if (parcel.parcelRefUser != nil) && (WebServiceHandler.sharedInstance.user?.internalIdentifier! == String(parcel.parcelRefUser!)) {
                     self.parcelList.addObject(parcel)
                 }
             }
@@ -74,7 +80,6 @@ class ParcelListAccountViewController: UIViewController, UITableViewDataSource, 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let parcelAccountDetailViewController = segue.destinationViewController as! ParcelAccountDetailViewController
         parcelAccountDetailViewController.parcel = self.parcelList[self.selectedParcel] as! Parcel
-        parcelAccountDetailViewController.user = self.user
     }
 
 }

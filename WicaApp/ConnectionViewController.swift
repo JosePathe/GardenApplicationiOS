@@ -14,6 +14,7 @@ class ConnectionViewController: UIViewController{
     @IBOutlet weak var field_password: UITextField!
     @IBOutlet weak var button_connection: UIButton!
     @IBOutlet weak var button_signUp: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +69,22 @@ class ConnectionViewController: UIViewController{
         }
     }
     
+    
+    // MARK: - Button listeners
+    
     @IBAction func onClickButtonSignUp(sender: UIButton) {
         self.performSegueWithIdentifier("toCreateAccount", sender: self)
     }
     
+    @IBAction func onClickBackButton(sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let tabBarController = storyBoard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        self.presentViewController(tabBarController, animated: true, completion: nil)
+    }
+    
+    
      // MARK: - Navigation
-     
+    
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      }

@@ -29,40 +29,35 @@ class MarketPlaceViewController: UIViewController, UITableViewDataSource, UITabl
         self.tableViewMarket.dataSource = self
         self.tableViewMarket.delegate = self
         
-        // Appel WS pour tester le module
-        let parameters : [ String : NSString] = [
-            "username": "\(WebServiceHandler.sharedInstance.user?.username!)",
-            "password": "\(WebServiceHandler.sharedInstance.user?.username!)"
-        ]
-        
-        WebServiceHandler.sharedInstance.connectionLogin(WebServiceHandler.loginConnection, parameters: parameters, completionHandler: ({(response) -> Void in
-            print(response)
-                WebServiceHandler.sharedInstance.getAllTrocs({(response) -> Void in
-                    print(response)
-                    let array:NSArray = response
-                    for element in array {
-                        let troc: Troc = Troc(object: element)
-                        if troc.trocUserAccept == nil || troc.trocUserAccept == ""{
-                            print(element)
-                            self.TrocArray.append(troc)
-                        }
+        // Check if user is connected
+        if WebServiceHandler.sharedInstance.user?.internalIdentifier == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let connectionViewController = storyBoard.instantiateViewControllerWithIdentifier("ConnectionViewController") as! ConnectionViewController
+            self.presentViewController(connectionViewController, animated: true, completion: nil)
+        } else {
+            WebServiceHandler.sharedInstance.getAllTrocs({(response) -> Void in
+                let array:NSArray = response
+                for element in array {
+                    let troc: Troc = Troc(object: element)
+                    if troc.trocUserAccept == nil || troc.trocUserAccept == ""{
+                        self.TrocArray.append(troc)
                     }
-                    self.tableViewMarket.reloadData()
-                })
-                
-                WebServiceHandler.sharedInstance.getAllHelps({(response) -> Void in
-                    let array:NSArray = response
-                    for element in array {
-                        let help: Help = Help(object: element)
-                        if help.helpUserAccept == nil || help.helpUserAccept == ""{
-                            print(element)
-                            self.HelpArray.append(help)
-                        }
+                }
+                self.tableViewMarket.reloadData()
+            })
+            
+            WebServiceHandler.sharedInstance.getAllHelps({(response) -> Void in
+                let array:NSArray = response
+                for element in array {
+                    let help: Help = Help(object: element)
+                    if help.helpUserAccept == nil || help.helpUserAccept == ""{
+                        self.HelpArray.append(help)
                     }
-                    self.tableViewMarket.reloadData()
-                })
-            }))
+                }
+                self.tableViewMarket.reloadData()
+            })
         }
+    }
     
         //////////////////////////////////
     
